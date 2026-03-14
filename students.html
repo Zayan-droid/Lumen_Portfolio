@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen — For Students</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="internal.css">
+</head>
+<body class="page-internal">
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav--visible nav--static" role="navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__brand">
+                <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+            </a>
+                                    <ul class="nav__links">
+                <li><a href="features.html">Full Features</a></li>
+                <li><a href="students.html" class="active">For Students</a></li>
+                <li><a href="teachers.html">For Teachers</a></li>
+                <li><a href="parents.html">For Parents</a></li>
+                <li><a href="ai.html">AI Features</a></li>
+            </ul>
+            <a href="index.html#section-cta" class="nav__cta">Partner with Lumen</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="internal-hero">
+        <div class="container container--narrow text-center">
+            <p class="eyebrow eyebrow--center">Student App</p>
+            <h1 class="hero-title">Focused, distraction-free learning.</h1>
+            <p class="hero-subtitle">A unified environment giving young learners total clarity on their schedules, assignments, and AI-assisted study tools.</p>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE APP SECTION -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            
+            <!-- TABS -->
+            <nav class="ui-tabs-container">
+                <div class="ui-tabs">
+                    <div class="tab active" data-target="tab-profile">My Profile</div>
+                    <div class="tab" data-target="tab-attendance">My Attendance</div>
+                    <div class="tab" data-target="tab-assignments">My Assignments</div>
+                    <div class="tab" data-target="tab-marks">My Marks</div>
+                    <div class="tab" data-target="tab-classes">Online Classes</div>
+                    <div class="tab" data-target="tab-ai">AI Study Buddy</div>
+                </div>
+            </nav>
+
+            <div class="portfolio-container">
+                
+                <!-- CONTENT 1: PROFILE -->
+                <div class="portfolio-content active" id="tab-profile">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Student Profile</h2>
+                        </div>
+                        <div class="ui-header">
+                            <div class="user-profile">
+                                <div class="user-avatar" style="width: 100px; height: 100px; font-size: 2rem; background: var(--color-navy); color: white;">AJ</div>
+                                <div class="user-info">
+                                    <h2 style="font-size: 2rem; margin-bottom: 8px;">Alex Johnson</h2>
+                                    <div style="display: flex; gap: 24px;">
+                                        <p><strong>Roll Number:</strong> 24A-1049</p>
+                                        <p><strong>Class:</strong> 10-A (Secondary)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="status-badges">
+                                <span class="badge badge--green">Active Student</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 2: ATTENDANCE -->
+                <div class="portfolio-content" id="tab-attendance">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Subject-wise Attendance</h2>
+                        </div>
+                        <div class="ui-card-grid">
+                            <div class="card">
+                                <div class="eyebrow" style="color: #64748b;">Mathematics</div>
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px;">
+                                    <h3 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0;">92%</h3>
+                                    <span class="badge badge--green">Excellent</span>
+                                </div>
+                                <div style="height: 6px; background: #E0F8EC; border-radius: 3px; margin-top: 20px; position: relative;">
+                                    <div style="position: absolute; left: 0; top: 0; height: 100%; width: 92%; background: #1E9E63; border-radius: 3px;"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="eyebrow" style="color: #64748b;">Physics</div>
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px;">
+                                    <h3 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0;">88%</h3>
+                                    <span class="badge badge--green">Good</span>
+                                </div>
+                                <div style="height: 6px; background: #E0F8EC; border-radius: 3px; margin-top: 20px; position: relative;">
+                                    <div style="position: absolute; left: 0; top: 0; height: 100%; width: 88%; background: #1E9E63; border-radius: 3px;"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="eyebrow" style="color: #64748b;">History</div>
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px;">
+                                    <h3 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0;">74%</h3>
+                                    <span class="badge badge--red">Warning</span>
+                                </div>
+                                <div style="height: 6px; background: #FEEDED; border-radius: 3px; margin-top: 20px; position: relative;">
+                                    <div style="position: absolute; left: 0; top: 0; height: 100%; width: 74%; background: #D33D3D; border-radius: 3px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 3: ASSIGNMENTS -->
+                <div class="portfolio-content" id="tab-assignments">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Current Assignments</h2>
+                        </div>
+                        <div class="card-group">
+                            <div class="card" style="display: flex; justify-content: space-between; align-items: center; border-left: 6px solid var(--color-blue);">
+                                <div>
+                                    <div class="badge badge--blue" style="margin-bottom: 12px;">Pending</div>
+                                    <h3 class="card__title">Chemical Bonding Worksheet</h3>
+                                    <p class="card__desc">Due: Tomorrow • <strong>Chemistry</strong></p>
+                                </div>
+                                <button class="nav__cta" style="background: var(--color-navy); border: none; padding: 12px 24px; font-size: 0.875rem;">One-Tap Upload</button>
+                            </div>
+                            <div class="card" style="display: flex; justify-content: space-between; align-items: center; opacity: 0.7; transform: scale(0.98);">
+                                <div>
+                                    <div class="badge badge--green" style="margin-bottom: 12px;">Submitted</div>
+                                    <h3 class="card__title" style="text-decoration: line-through;">Macbeth Essay Draft</h3>
+                                    <p class="card__desc">Submitted 2 days ago • <strong>English</strong></p>
+                                </div>
+                                <span class="badge badge--green">Feedback Received</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 4: MARKS -->
+                <div class="portfolio-content" id="tab-marks">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Academic Performance</h2>
+                        </div>
+                        <div class="card" style="padding: 0; overflow: hidden; border: 1px solid rgba(10,31,68,0.08);">
+                            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                                <thead>
+                                    <tr style="background: #F8F9FA;">
+                                        <th style="padding: 20px 24px; font-weight: 700; color: var(--color-navy);">SUBJECT</th>
+                                        <th style="padding: 20px 24px; font-weight: 700; color: var(--color-navy); text-align: center;">QUIZZES</th>
+                                        <th style="padding: 20px 24px; font-weight: 700; color: var(--color-navy); text-align: center;">MIDTERMS</th>
+                                        <th style="padding: 20px 24px; font-weight: 700; color: var(--color-navy); text-align: center;">FINALS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-top: 1px solid rgba(10,31,68,0.05);">
+                                        <td style="padding: 24px; font-weight: 600;">Mathematics</td>
+                                        <td style="padding: 24px; text-align: center;"><span class="badge badge--green">18/20</span></td>
+                                        <td style="padding: 24px; text-align: center;"><span class="badge badge--blue">88/100</span></td>
+                                        <td style="padding: 24px; text-align: center; color: #8C9BAB;">—</td>
+                                    </tr>
+                                    <tr style="border-top: 1px solid rgba(10,31,68,0.05);">
+                                        <td style="padding: 24px; font-weight: 600;">Physics</td>
+                                        <td style="padding: 24px; text-align: center;"><span class="badge badge--green">19/20</span></td>
+                                        <td style="padding: 24px; text-align: center;"><span class="badge badge--blue">92/100</span></td>
+                                        <td style="padding: 24px; text-align: center; color: #8C9BAB;">—</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 5: ONLINE CLASSES -->
+                <div class="portfolio-content" id="tab-classes">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Upcoming Virtual Lessons</h2>
+                        </div>
+                        <div class="card" style="background: linear-gradient(135deg, var(--color-navy) 0%, #1a365d 100%); color: white; border: none; padding: 48px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span class="badge badge--yellow" style="color: #854d0e; background: #fef9c3; margin-bottom: 16px;">Starting in 15 mins</span>
+                                    <h3 class="hero-title" style="color: white; margin-bottom: 8px;">Advanced Calculus</h3>
+                                    <p style="opacity: 0.8; font-size: 1.125rem;">Mr. Davis • Mathematics • Room: Virtual-04</p>
+                                </div>
+                                <button class="nav__cta" style="background: white; color: var(--color-navy); border: none; padding: 20px 48px; font-size: 1.125rem; font-weight: 700;">Join Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 6: AI STUDY BUDDY -->
+                <div class="portfolio-content" id="tab-ai">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">AI Study Buddy</h2>
+                        </div>
+                        <div class="card" style="position: relative; overflow: hidden; padding: 0;">
+                            <div style="padding: 32px; background: #F8FBFF; border-bottom: 1px solid rgba(0,163,255,0.1); display: flex; align-items: center; gap: 20px;">
+                                <div class="user-avatar" style="background: var(--color-blue); color: white; width: 56px; height: 56px; box-shadow: 0 4px 12px rgba(0,163,255,0.2);">AI</div>
+                                <div>
+                                    <h3 class="card__title" style="margin-bottom: 2px;">Intelligent Homework Assistant</h3>
+                                    <p class="card__desc" style="color: var(--color-blue);">Powered by Lumen AI</p>
+                                </div>
+                            </div>
+                            <div style="padding: 40px; background: white;">
+                                <div class="card" style="max-width: 80%; background: #F4F6F9; border: none; margin-bottom: 32px;">
+                                    <p class="card__desc" style="color: var(--color-navy);">"Hello Alex! I noticed you have the <strong>Chemical Bonding</strong> worksheet due tomorrow. Would you like me to walk you through the difference between ionic and covalent bonds, or should we try some practice questions first?"</p>
+                                </div>
+                                <div style="display: flex; gap: 16px; margin-top: 40px;">
+                                    <button class="nav__cta" style="background: transparent; border: 1px solid var(--color-blue); color: var(--color-blue); font-size: 0.875rem;">Explain the Concept</button>
+                                    <button class="nav__cta" style="background: transparent; border: 1px solid var(--color-blue); color: var(--color-blue); font-size: 0.875rem;">Give me a Practice Question</button>
+                                    <button class="nav__cta" style="background: transparent; border: 1px solid var(--color-blue); color: var(--color-blue); font-size: 0.875rem;">I need a hint for Problem #4</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="transitions.js"></script>
+    <!-- INTERACTIVE TAB LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.ui-tabs .tab');
+            const contents = document.querySelectorAll('.portfolio-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    const targetId = tab.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

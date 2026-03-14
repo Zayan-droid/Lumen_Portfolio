@@ -1,0 +1,308 @@
+/* ═══════════════════════════════════════════════════════════
+   LUMEN — Internal Pages CSS
+   Layouts for Platform, Teachers, Parents, and AI features
+   ═══════════════════════════════════════════════════════════ */
+
+.page-internal {
+    background: #F4F6F9; /* Subtle gray background for internal pages like the mockups */
+    color: var(--color-slate);
+    padding-top: calc(var(--nav-height) + 60px);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Ensure nav is always visible on internal pages (no scroll trigger needed) */
+.page-internal .nav--static {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Containers ─────────────────────────────────────────── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.container--narrow {
+    max-width: 800px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.text-center { text-align: center; }
+
+/* ── Typography ─────────────────────────────────────────── */
+.eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--color-navy);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--color-slate);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+}
+
+/* ── Grids ──────────────────────────────────────────────── */
+.grid-4x {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.grid-2x {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    align-items: start;
+}
+
+/* ── Cards (Matching UI Mockups) ────────────────────────── */
+.card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(10, 31, 68, 0.04);
+    border: 1px solid rgba(10, 31, 68, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(10, 31, 68, 0.08);
+}
+
+.card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+}
+
+.card__desc {
+    font-size: 0.9375rem;
+    color: var(--color-slate);
+    line-height: 1.6;
+}
+
+/* ── UI Mockup Elements ─────────────────────────────────── */
+
+.ui-header {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    background: #EBF4FC;
+    color: var(--color-navy);
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info h2 {
+    font-size: 1.25rem;
+    color: var(--color-navy);
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.user-info p {
+    font-size: 0.875rem;
+    color: #8C9BAB;
+}
+
+.status-badges {
+    display: flex;
+    gap: 12px;
+}
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.badge--green { background: #E0F8EC; color: #1E9E63; }
+.badge--yellow { background: #FFF5D1; color: #E5A31E; }
+.badge--blue { background: #E6F3FF; color: var(--color-blue); }
+.badge--red { background: #FEEDED; color: #D33D3D; }
+
+/* ── Tabs ───────────────────────────────────────────────── */
+.ui-tabs {
+    background: var(--color-white);
+    border-radius: 12px;
+    display: flex;
+    padding: 0 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #0A1F44 transparent;
+}
+
+.ui-tabs::-webkit-scrollbar {
+    height: 1.5px;
+}
+
+.ui-tabs::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.ui-tabs::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ui-tabs::-webkit-scrollbar-thumb {
+    background: #0A1F44;
+    border-radius: 0;
+}
+
+.ui-tabs::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blue);
+}
+
+.tab {
+    flex-shrink: 0;
+    padding: 20px 24px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: #8C9BAB;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.tab:hover {
+    color: var(--color-blue);
+}
+
+.tab.active {
+    color: var(--color-navy);
+    font-weight: 800;
+}
+
+/* ── Content Switching ──────────────────────────────────── */
+.portfolio-content {
+    display: none;
+    animation: slideUpFade 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.portfolio-content.active {
+    display: block;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Enhanced Card Layouts ─────────────────────────────── */
+.feature-section {
+    margin-bottom: 48px;
+}
+
+.feature-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(10, 31, 68, 0.08);
+}
+
+.card-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.ui-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 48px;
+}
+
+.card--top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+}
+
+/* ── Bullet Points ──────────────────────────────────────── */
+.bullet-list {
+    list-style: none;
+    padding: 0;
+}
+
+.bullet-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    font-size: 0.9375rem;
+    color: var(--color-slate);
+}
+
+.bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34C759; /* Green dot from AI report screenshot */
+}

@@ -1,0 +1,255 @@
+﻿Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page   
+LUMEN  
+Intelligent School Management Platform  
+Product Overview & Commercial Proposal  
+Prepared for: Prospective Partners & Clients  
+2025 Edition  
+ 
+  
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page  1. Executive Summary  
+ 
+Lumen  is a comprehensive, AI -powered school management platform purpose -built for private educational 
+institutions. The platform digitises and streamlines every critical workflow across four key stakeholders ù 
+students, teachers, parents, and school administrat ion ù delivering a unified and intelligent experience on a 
+single, cloud -hosted solution.  
+ 
+Lumen addresses a significant and largely underserved market gap in Pakistan's private education sector, 
+where the majority of institutions continue to rely on manual record -keeping, fragmented communication 
+channels, and reactive rather than data -driven d ecision -making.  
+ 
+This document provides a complete overview of Lumen 's platform capabilities, technical architecture, artificial 
+intelligence features, and commercial model, intended for the review of prospective institutional clients, 
+investors, and distribution partners.  
+ 
+2. The Problem We Solve  
+ 
+Private schools across Pakistan face consistent operational challenges that impede academic outcomes and 
+administrative efficiency:  
+ 
+ò Attendance records are maintained manually, resulting in data errors and delayed parental notifications.  
+ò Academic performance data is siloed  across teachers, making it difficult to identify at -risk students in 
+time.  
+ò Parents receive limited, infrequent updates on their child's academic progress and conduct.  
+ò Teachers spend a disproportionate amount of time on administrative tasks rather than instruction.  
+ò School leadership lacks real -time, consolidated analytics to make informed curriculum or resource 
+decisions.  
+ 
+Lumen resolves each of these challenges through an integrated, role -based digital platform enhanced with 
+artificial intelligence.  
+ 
+3. Platform Overview  
+ 
+Lumen serves four distinct user groups, each with a tailored panel designed around their specific 
+responsibilities and information needs.  
+ 
+3.1  Student Panel  
+The Student Panel provides learners with centralised access to all academic information and an AI -powered 
+learning assistant.  
+ 
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page  Dashboard  
+ò Daily class schedule and upcoming lessons  
+ò Pending homework and submission deadlines  
+ò School announcements and notices  
+ 
+Attendance  
+ò Personal attendance percentage and monthly breakdown  
+ò Automated absence alerts  
+ 
+Assignments  
+ò View and download assigned homework  
+ò Upload completed submissions digitally  
+ò Deadline reminders and submission status tracking  
+ 
+Grades & Academic Records  
+ò Itemised  marks for quizzes, tests, and assignments  
+ò Subject -wise performance history  
+ 
+AI Learning Assistant  
+An AI -powered study assistant is integrated directly within the student panel, designed to support learning 
+rather than replace it. The assistant:  
+ò Explains concepts in clear, step -by-step language  
+ò Provides guided hints and scaffolding for homework problems  
+ò Generates customised practice questions by topic and difficulty  
+ò Deliberately withholds full answers to encourage independent problem -solving  
+ 
+Example interaction:  
+Student: Can you solve this algebra problem for me?  
+Lumen AI: Let me walk you through the concept first, then give you a hint so you can arrive at the 
+solution yourself.  
+ 
+3.2  Teacher Panel  
+The Teacher Panel equips educators with tools to manage attendance, assignments, grading, and student 
+performance analysis ù all within a single interface.  
+ 
+Dashboard  
+ò Today's teaching schedule  
+ò Pending grading queue  
+ò Class -wide attendance alerts  
+ 
+Attendance Management  
+ò Mark individual or bulk attendance per class session  
+ò Edit and amend historical attendance records  
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page  ò Real-time attendance reporting per student  
+ 
+Assignment & Quiz Management  
+ò Create and distribute homework assignments with deadlines  
+ò Upload supporting files and reference materials  
+ò Design and administer quizzes  
+ò Enter and update marks; export grade sheets  
+ 
+Student Performance Analytics  
+ò View individual student academic trajectories  
+ò Compare individual performance against class averages  
+ò Filter by subject, period, or assessment type  
+ 
+AI-Generated Student Reports  
+With a single click, teachers can generate a comprehensive, narrative -style performance summary for any 
+student. The AI synthesises attendance data, quiz scores, assignment results, and grade trends to produce a 
+professional written report.  
+ 
+Sample AI -generated report excerpt:  
+Ali demonstrates strong academic performance in Mathematics but encounters consistent 
+difficulty with English grammar. His attendance rate has declined to 72% this month, which 
+may be adversely impacting his written work. It is recommended that Ali underta ke targeted 
+grammar practice exercises and be enrolled in available remedial support sessions.  
+ 
+3.3  Parent Panel  
+Parental engagement is a cornerstone of the Lumen  value proposition. The Parent Panel provides guardians 
+with transparent, real -time visibility into their child's academic life ù a key driver of institutional trust and client 
+retention.  
+ 
+Dashboard  
+ò Live attendance status and monthly summary  
+ò Upcoming homework deadlines and test dates  
+ò Latest academic results  
+ 
+AI Progress Reports  
+ò Plain -language AI performance summaries  
+ò Identification of weak subjects with suggested improvement actions  
+ 
+Notifications  
+ò Instant absence alerts  
+ò Homework and test reminders  
+ò Grade publication notifications  
+ 
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page  Teacher Communication  
+ò Direct in -platform messaging with subject teachers  
+ò Message history and response tracking  
+ 
+3.4  School Administration Panel  
+The Administration Panel provides school leadership and management staff with complete oversight of the 
+institution's academic operations.  
+ 
+School Configuration  
+ò Create and manage classes, sections, and academic years  
+ò Define subjects and assign to classes  
+ 
+User Management  
+ò Onboard and manage student, teacher, and parent accounts  
+ò Role-based access control and permission management  
+ 
+Timetable Management  
+ò Build and publish class schedules  
+ò Assign teachers to subjects and sessions  
+ 
+Reporting & Analytics  
+ò Institution -wide attendance reports  
+ò Academic performance summaries by class, subject, or period  
+ò Class -level statistical analysis  
+ 
+Fee Management (Available in Phase 2)  
+ò Digital fee records and payment status tracking  
+ò Fee reminders and overdue notifications  
+ 
+  
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page  4. Artificial Intelligence Capabilities  
+ 
+Lumen's AI layer is purpose -designed for educational contexts. Rather than generic AI integrations, Lumen 
+employs AI to deliver specific, measurable outcomes for students, teachers, and administrators.  
+ 
+4.1  AI Student Performance Analysis  
+The system automatically analyses a student's complete academic profile ù including attendance, quiz 
+scores, assignment results, and grade history ù and generates structured, human -readable insight reports.  
+ 
+Component  Description  
+Input Data  Attendance records, quiz scores, assignment marks, subject grades  
+AI Output  Narrative performance summary, identification of weak subjects, attendance impact 
+analysis, personalised recommendations  
+Trigger  Teacher -initiated ("Generate Report" button) or scheduled automated generation  
+Recipient  Teacher dashboard, parent portal, school administration reports  
+ 
+Sample AI output:  
+Sara demonstrates exceptional aptitude in Science and Mathematics, consistently achieving 
+above -average scores. Her performance in Urdu requires targeted attention, particularly in 
+written expression. Attendance has remained exemplary at 90% this term. It is recommended 
+that Sara undertake structured Urdu writing practice and regular grammar review to bring her 
+performance to an equivalent level across all subjects.  
+ 
+4.2  AI Homework Tutor (Student -Facing Chatbot)  
+The AI Homework Tutor operates as a guided learning companion ù not an answer engine. It is 
+architecturally designed to support academic integrity while providing meaningful learning support.  
+ 
+ò Delivers step -by-step concept explanations tailored to curriculum level  
+ò Provides structured hints to guide independent problem -solving  
+ò Generates practice questions on demand by topic and difficulty  
+ò Blocks requests for complete assignment solutions to uphold academic integrity  
+ò Response length and scope are intelligently limited to prevent misuse  
+ 
+  
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page  5. Product Roadmap  
+ 
+Lumen is designed for continuous evolution. The Phase 1 release delivers a robust, fully -featured core 
+platform. Phase 2 introduces advanced AI capabilities that further differentiate Lumen in the market.  
+ 
+Phase 1 ù Core Platform (Current Release)  
+ò Student, Teacher, Parent, and Administration panels  
+ò Attendance management and automated notifications  
+ò Assignment and grade management  
+ò AI Student Report Generator  
+ò AI Homework Tutor (Chatbot)  
+ò Cloud -hosted, multi -tenant architecture  
+ 
+Phase 2 ù Advanced AI Expansion (Planned)  
+Feature  Description  
+AI Report Cards  Automated term -end academic report card generation with personalised 
+narrative summaries  
+AI Timetable Generator  Intelligent scheduling engine that optimises teacher allocation and class load  
+AI Exam Paper Generator  Automated question paper creation aligned to syllabus and difficulty 
+parameters  
+Biometric Attendance  Face recognition -based automated attendance marking  
+WhatsApp Notifications  Direct parent notifications via WhatsApp for maximum reach and 
+engagement  
+Voice AI Tutor  Conversational voice -based learning assistant for students  
+AI Integrity Monitor  Intelligent detection of academic dishonesty patterns in submissions  
+ 
+6. Next Steps  
+ 
+We welcome the opportunity to present Lumen  in further detail and discuss how the platform can be tailored 
+to the specific requirements of your institution or portfolio. The following engagement pathways are available:  
+ 
+1. Schedule a live platform demonstration at your convenience.  
+2. Initiate a structured pilot programme at a single institution.  
+3. Review a tailored commercial proposal based on your enrolment figures.  
+4. Discuss distribution or partnership arrangements for school networks.  
+ 
+We look forward to partnering with your institution to deliver a measurably better educational experience.  
+--- PAGE BREAK ---
+Lumen School Management Platform  CONFIDENTIAL  
+⌐ 2025 Lumen  Technologies. All rights reserved.  Page Page   
+ 
+Lumen Technologies  |  contact@Lumen.pk  |  www.Lumen.pk  
+--- PAGE BREAK ---
+

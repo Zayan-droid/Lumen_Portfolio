@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen — For Parents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="internal.css">
+    <style>
+        .child-selector {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .child-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 24px 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .child-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+        }
+        .child-card.active {
+            border-color: var(--color-blue);
+            background: #F8FBFF;
+        }
+    </style>
+</head>
+<body class="page-internal">
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav--visible nav--static" role="navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__brand">
+                <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+            </a>
+                                    <ul class="nav__links">
+                <li><a href="features.html">Full Features</a></li>
+                <li><a href="students.html">For Students</a></li>
+                <li><a href="teachers.html">For Teachers</a></li>
+                <li><a href="parents.html" class="active">For Parents</a></li>
+                <li><a href="ai.html">AI Features</a></li>
+            </ul>
+            <a href="index.html#section-cta" class="nav__cta">Partner with Lumen</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="internal-hero" style="padding-bottom: 20px;">
+        <div class="container container--narrow text-center">
+            <p class="eyebrow eyebrow--center">Parent App</p>
+            <h1 class="hero-title">Total peace of mind.</h1>
+            <p class="hero-subtitle">Real-time attendance, direct teacher communication, and transparent academic tracking—simplifying your involvement in your child's education.</p>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE APP SECTION -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+
+            <!-- ENTRY SCREEN: CHILD SELECTOR -->
+            <div class="feature-section text-center">
+                <div class="feature-header" style="border: none;">
+                    <h2 class="card__title" style="margin-bottom: 24px;">Active Child Selection</h2>
+                </div>
+                <div class="child-selector">
+                    <div class="child-card active">
+                        <div class="user-avatar" style="width: 80px; height: 80px; font-size: 1.5rem; margin: 0 auto 16px; background: var(--color-navy); color: white; border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">AJ</div>
+                        <h3 class="card__title" style="margin-bottom: 4px;">Alex Johnson</h3>
+                        <p class="card__desc">Class 10-A • Secondary</p>
+                    </div>
+                    <div class="child-card">
+                        <div class="user-avatar" style="width: 80px; height: 80px; font-size: 1.5rem; margin: 0 auto 16px; background: #E6F3FF; color: var(--color-blue); border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">SJ</div>
+                        <h3 class="card__title" style="margin-bottom: 4px;">Sarah Johnson</h3>
+                        <p class="card__desc">Class 6-C • Primary</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TABS (4 items) -->
+            <nav class="ui-tabs-container">
+                <div class="ui-tabs">
+                    <div class="tab active" data-target="tab-overview">Student Overview</div>
+                    <div class="tab" data-target="tab-notices">Interactive Notice Board</div>
+                    <div class="tab" data-target="tab-interaction">Teacher Interaction</div>
+                    <div class="tab" data-target="tab-ai">AI Progress Analysis</div>
+                </div>
+            </nav>
+
+            <div class="portfolio-container">
+                
+                <!-- CONTENT 1: OVERVIEW -->
+                <div class="portfolio-content active" id="tab-overview">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Current Status</h2>
+                        </div>
+                        <div class="ui-header">
+                            <div class="user-profile">
+                                <div class="user-avatar" style="background: var(--color-navy); color: white;">AJ</div>
+                                <div class="user-info">
+                                    <h2 style="font-size: 1.5rem; margin-bottom: 4px;">Alex Johnson</h2>
+                                    <p>Overall Attendance: <strong style="color: #1E9E63;">93% (Excellent)</strong></p>
+                                </div>
+                            </div>
+                            <div class="status-badges">
+                                <span class="badge badge--green">Present Today</span>
+                            </div>
+                        </div>
+
+                        <div class="ui-card-grid" style="margin-top: 32px;">
+                            <div class="card" style="border-top: 4px solid var(--color-blue);">
+                                <div class="badge badge--blue" style="margin-bottom: 16px;">Latest Grade</div>
+                                <h3 class="hero-title" style="font-size: 2.25rem; margin-bottom: 8px;">92/100</h3>
+                                <p class="card__desc">Physics Midterm • Above Class Average (84)</p>
+                            </div>
+                            <div class="card" style="border-top: 4px solid var(--color-blue);">
+                                <div class="badge badge--yellow" style="margin-bottom: 16px;">Action Required</div>
+                                <h3 class="card__title" style="margin-bottom: 8px;">Chemistry Worksheet</h3>
+                                <p class="card__desc">Due: Tomorrow • Assignment not yet submitted.</p>
+                                <button class="nav__cta" style="margin-top: 20px; background: transparent; border: 1px solid var(--color-blue); color: var(--color-blue); font-size: 0.8125rem;">Nudge Student</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 2: NOTICE BOARD -->
+                <div class="portfolio-content" id="tab-notices">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Centralized School Feed</h2>
+                        </div>
+                        <div class="card-group">
+                            <div class="card" style="border-left: 6px solid #E5A31E;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                                    <div>
+                                        <div class="badge badge--yellow" style="margin-bottom: 12px;">Exam Alert</div>
+                                        <h3 class="card__title">Mathematics Midterm Schedule</h3>
+                                    </div>
+                                    <p class="card__desc" style="font-size: 0.75rem;">March 8, 2026</p>
+                                </div>
+                                <p class="card__desc">Maths midterm exam is scheduled for <strong>March 15</strong> in Room 104. Students must bring their own scientific calculators.</p>
+                            </div>
+                            <div class="card" style="border-left: 6px solid #D33D3D;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                                    <div>
+                                        <div class="badge badge--red" style="margin-bottom: 12px;">Finance</div>
+                                        <h3 class="card__title">Q2 Tuition Fee Reminder</h3>
+                                    </div>
+                                    <p class="card__desc" style="font-size: 0.75rem;">Yesterday</p>
+                                </div>
+                                <p class="card__desc">The second quarter tuition installment ($1,250) is due by <strong>March 20</strong>. Online payments are accepted through the parent portal link below.</p>
+                                <button class="nav__cta" style="margin-top: 20px; background: var(--color-navy); border: none;">Pay Fees Online</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 3: TEACHER INTERACTION -->
+                <div class="portfolio-content" id="tab-interaction">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Communication & Meetings</h2>
+                        </div>
+                        <div class="ui-card-grid">
+                            <div class="card">
+                                <h3 class="card__title" style="margin-bottom: 16px;">Book PTM Slot</h3>
+                                <p class="card__desc" style="margin-bottom: 24px;">Directly book a 15-minute slot with subject teachers for the upcoming monthly review.</p>
+                                <div class="card" style="padding: 16px; background: #F8F9FA; border: none; box-shadow: none; display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <div style="font-weight: 700; color: var(--color-navy);">Mr. Davis</div>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Calculus • March 22</div>
+                                    </div>
+                                    <button class="nav__cta" style="background: var(--color-blue); border: none; font-size: 0.75rem;">View Slots</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h3 class="card__title" style="margin-bottom: 16px;">Direct Messaging</h3>
+                                <p class="card__desc" style="margin-bottom: 24px;">Send secure, encrypted messages to the class coordinator or specific heads.</p>
+                                <div class="card-group" style="gap: 12px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; border-bottom: 1px solid #f1f5f9;">
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem; background: var(--color-blue); color: white;">MD</div>
+                                            <div style="font-size: 0.875rem; font-weight: 600;">Mr. Davis</div>
+                                        </div>
+                                        <button class="nav__cta" style="background: transparent; border: 1px solid #e2e8f0; color: var(--color-navy); font-size: 0.75rem; padding: 6px 12px;">Chat</button>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px;">
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem; background: #1E9E63; color: white;">AW</div>
+                                            <div style="font-size: 0.875rem; font-weight: 600;">Ms. Wright</div>
+                                        </div>
+                                        <button class="nav__cta" style="background: transparent; border: 1px solid #e2e8f0; color: var(--color-navy); font-size: 0.75rem; padding: 6px 12px;">Chat</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT 4: AI PROGRESS REPORT -->
+                <div class="portfolio-content" id="tab-ai">
+                    <div class="feature-section">
+                        <div class="feature-header">
+                            <h2 class="card__title">Lumen Intelligence Report</h2>
+                        </div>
+                        <div class="card" style="border-right: 6px solid var(--color-navy); overflow: hidden;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                                <h3 class="card__title" style="margin-bottom: 0;">Performance Trajectory Diagnostic</h3>
+                                <span class="badge badge--blue">AI Generated</span>
+                            </div>
+                            <div style="background: #F8FBFF; padding: 32px; border-radius: 12px; line-height: 1.8;">
+                                <p style="margin-bottom: 24px; color: var(--color-navy);">"Alex's performance in STEM subjects remains exceptional, scoring in the <strong>top 10%</strong> for both Calculus and Physics. However, there has been a slight dip in English Literature assignments correlated directly with two recent absences."</p>
+                                <div style="padding: 24px; background: rgba(0,163,255,0.05); border: 1px dashed var(--color-blue); border-radius: 8px;">
+                                    <div style="font-weight: 800; color: var(--color-blue); margin-bottom: 8px; font-size: 0.875rem;">RECOMMENDED ACTION:</div>
+                                    <p style="font-size: 0.9375rem;">Review <strong>Chapter 4</strong> of the Literature syllabus this weekend using the AI Study Buddy practice prompts to catch up on missed material before the March 15 testing window.</p>
+                                </div>
+                            </div>
+                            <button class="nav__cta" style="margin-top: 32px; background: var(--color-navy); border: none; padding: 16px 40px;">Download Full Analytics (PDF)</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="transitions.js"></script>
+    <!-- INTERACTIVE TAB LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.ui-tabs .tab');
+            const contents = document.querySelectorAll('.portfolio-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    const targetId = tab.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

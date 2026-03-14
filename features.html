@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen — Interactive Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="internal.css">
+    <style>
+        .portfolio-content {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .portfolio-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(10,31,68,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+
+        .feature-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: #E6F3FF;
+            color: var(--color-blue);
+        }
+        
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+        }
+        
+        .feature-desc {
+            font-size: 0.9375rem;
+            color: var(--color-slate);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="page-internal">
+
+    <!-- NAVIGATION -->
+    <nav class="nav nav--visible nav--static" role="navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__brand">
+                <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+            </a>
+                                    <ul class="nav__links">
+                <li><a href="features.html" class="active">Full Features</a></li>
+                <li><a href="students.html">For Students</a></li>
+                <li><a href="teachers.html">For Teachers</a></li>
+                <li><a href="parents.html">For Parents</a></li>
+                <li><a href="ai.html">AI Features</a></li>
+            </ul>
+            <a href="index.html#section-cta" class="nav__cta">Partner with Lumen</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="internal-hero">
+        <div class="container container--narrow text-center">
+            <p class="eyebrow eyebrow--center">Interactive Portfolio</p>
+            <h1 class="hero-title">LUMEN School Management System.</h1>
+            <p class="hero-subtitle">Explore the comprehensive Product Requirements Document mapping out every critical workflow across General Access, Students, Teachers, Parents, and Administrators.</p>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE PORTFOLIO SECTION -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            
+            <!-- TABS (Unified App Style) -->
+            <nav class="ui-tabs-container">
+                <div class="ui-tabs">
+                    <div class="tab active" data-target="tab-access">General Access</div>
+                    <div class="tab" data-target="tab-student">Student App</div>
+                    <div class="tab" data-target="tab-teacher">Teacher App</div>
+                    <div class="tab" data-target="tab-parent">Parent App</div>
+                    <div class="tab" data-target="tab-admin">Admin Command Center</div>
+                </div>
+            </nav>
+
+            <!-- CONTENT: GENERAL ACCESS -->
+            <div class="portfolio-content active" id="tab-access">
+                <div class="card-group">
+                    <div class="card" style="padding: 48px; border-left: 6px solid var(--color-blue);">
+                        <span class="feature-badge" style="background: var(--color-blue-soft); color: var(--color-blue);">ENTRY POINT</span>
+                        <h3 class="hero-title" style="font-size: 2.25rem; margin-top: 16px; margin-bottom: 24px;">The Login Screen</h3>
+                        <p class="feature-desc" style="font-size: 1.125rem; max-width: 800px;">A clean, minimalist entry point designed for high performance across all devices. It features a single, focused input field for Email/ID and Password, ensuring zero friction for users across any hardware.</p>
+                    </div>
+                    
+                    <div class="card" style="padding: 48px; border-left: 6px solid var(--color-navy);">
+                        <span class="feature-badge" style="background: #EBF4FC; color: var(--color-navy);">SMART ROUTING</span>
+                        <h3 class="hero-title" style="font-size: 2.25rem; margin-top: 16px; margin-bottom: 24px;">Role-Based Access Control (RBAC)</h3>
+                        <p class="feature-desc" style="font-size: 1.125rem; max-width: 800px;">Our intelligent backend identifies the user type—Student, Teacher, Parent, or Admin—immediately upon authentication. The system then automatically routes them to their specialized dashboard, ensuring data security and a personalized experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT: STUDENT APP -->
+            <div class="portfolio-content" id="tab-student">
+                <p style="margin-bottom: 24px; color: var(--color-slate);"><strong>Objective:</strong> To provide a focused, distraction-free environment for young learners.</p>
+                <div class="feature-grid">
+                    <div class="feature-card"><span class="feature-badge">TAB 1</span><h3 class="feature-title">My Profile</h3><p class="feature-desc">Displays core identity data: Name, Profile Picture, Roll Number, Class, and Section.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 2</span><h3 class="feature-title">My Attendance</h3><p class="feature-desc">A visual tracker showing subject-wise attendance percentages to encourage consistency.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 3</span><h3 class="feature-title">My Assignments</h3><p class="feature-desc">A Google Classroom-style feed for tasks, deadlines, and a "One-Tap Upload" for physical work.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 4</span><h3 class="feature-title">My Marks</h3><p class="feature-desc">A centralized gradebook showing performance in Quizzes, Midterms, and Finals.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 5</span><h3 class="feature-title">Online Classes</h3><p class="feature-desc">A live schedule of upcoming virtual lessons. Students can join via a "Join Now" button directly integrated with video tools.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 6</span><h3 class="feature-title">AI Study Buddy</h3><p class="feature-desc">A generative AI interface providing step-by-step homework hints, practice questions, and concept explanations.</p></div>
+                </div>
+            </div>
+
+            <!-- CONTENT: TEACHER APP -->
+            <div class="portfolio-content" id="tab-teacher">
+                <p style="margin-bottom: 24px; color: var(--color-slate);"><strong>Objective:</strong> To minimize administrative friction and maximize instructional time.</p>
+                <div class="feature-grid">
+                    <div class="feature-card"><span class="feature-badge">TAB 1</span><h3 class="feature-title">Profile & Classes</h3><p class="feature-desc">Overview of the teacher’s assigned subjects and class sections.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 2</span><h3 class="feature-title">Mark Attendance</h3><p class="feature-desc">A rapid-tap interface to log student presence, instantly triggering parent notifications and Admin archives.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 3</span><h3 class="feature-title">Manage Assignments</h3><p class="feature-desc">Create tasks, upload resource materials, and track submission status in real-time.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 4</span><h3 class="feature-title">Enter Marks</h3><p class="feature-desc">A digital ledger for inputting grades that syncs directly to Student and Parent dashboards.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 5</span><h3 class="feature-title">Live Classroom</h3><p class="feature-desc">Start and manage online sessions with a "Record" toggle that uploads to the Student’s Assignments tab.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 6</span><h3 class="feature-title">Meeting Scheduler</h3><p class="feature-desc">A calendar tool for setting "Available Hours" for Parent-Teacher Meetings (Offline or Online Video Link).</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 7</span><h3 class="feature-title">AI Assistant</h3><p class="feature-desc">An analytical tool generating professional, data-driven progress reports based on attendance and grade trends.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 8</span><h3 class="feature-title">Parent Chat</h3><p class="feature-desc">A secure, WhatsApp-style messaging interface for direct communication with guardians.</p></div>
+                </div>
+            </div>
+
+            <!-- CONTENT: PARENT APP -->
+            <div class="portfolio-content" id="tab-parent">
+                <p style="margin-bottom: 24px; color: var(--color-slate);"><strong>Objective:</strong> To provide "Peace of Mind" through transparency and easy scheduling.</p>
+                <div class="feature-grid">
+                    <div class="feature-card"><span class="feature-badge">ENTRY</span><h3 class="feature-title">Child Selector</h3><p class="feature-desc">Features large, friendly "Photo Cards" for parents with multiple children enrolled.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 1</span><h3 class="feature-title">Overview</h3><p class="feature-desc">Real-time status updates including "Present Today" status, overall attendance, and recent exam results.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 2</span><h3 class="feature-title">Notice Board</h3><p class="feature-desc">A consolidated feed of homework deadlines, school-wide events, and exam schedules.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 3</span><h3 class="feature-title">Teacher Interaction</h3><p class="feature-desc">A dual-purpose hub to send direct messages or book PTM Slots (Online or Location) based on teacher availability.</p></div>
+                    <div class="feature-card"><span class="feature-badge">TAB 4</span><h3 class="feature-title">AI Progress Report</h3><p class="feature-desc">A plain-language summary generated by AI that interprets the child’s data into actionable advice.</p></div>
+                </div>
+            </div>
+
+            <!-- CONTENT: ADMIN APP -->
+            <div class="portfolio-content" id="tab-admin">
+                <p style="margin-bottom: 24px; color: var(--color-slate);"><strong>Objective:</strong> Total oversight and infrastructural management of the school ecosystem.</p>
+                <div class="feature-grid">
+                    <div class="feature-card"><span class="feature-badge">DASHBOARD</span><h3 class="feature-title">User Management</h3><p class="feature-desc">Real-time analytics on school health (Attendance %, Financials) and a directory for managing users.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">Academic Architecture</h3><p class="feature-desc">Tools to define Classes, Sections, Subjects, and the Master Timetable.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">Virtual Infrastructure</h3><p class="feature-desc">Global settings for Online Class capabilities, including video hosting licenses and recording storage.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">Meeting Oversight</h3><p class="feature-desc">A master view of all scheduled PTMs. Admins can intervene resolving conflicts or providing unified virtual links.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">Financial & Admin Tools</h3><p class="feature-desc">Fee invoicing, ID card generation, and an Attendance Archive for manual overrides.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">AI Analytics</h3><p class="feature-desc">Heatmaps for academic performance, teacher punctuality, and "Retention Risk" flagging for disengaged students.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">System Settings</h3><p class="feature-desc">Global branding management (LUMEN logo), contact details, and SMS/Email gateway configurations.</p></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="transitions.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.portfolio-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from all
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Add active to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const targetId = tab.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

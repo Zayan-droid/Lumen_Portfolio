@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen — Intelligent School Management Platform</title>
+    <meta name="description" content="Lumen digitises every critical school workflow across a single, cloud-hosted solution. Purpose-built AI, real-time visibility, and role-based dashboards for teachers, parents, students, and administrators.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  NAVIGATION                                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav id="main-nav" class="nav" role="navigation">
+        <div class="nav__inner">
+        <a href="index.html" class="nav__brand">
+            <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+        </a>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="features.html">Full Features</a></li>
+                <li><a href="students.html">For Students</a></li>
+            <li><a href="teachers.html">For Teachers</a></li>
+            <li><a href="parents.html">For Parents</a></li>
+            <li><a href="ai.html">AI Features</a></li>
+        </ul>
+            <a href="#section-cta" class="nav__cta" id="nav-cta">Partner with Lumen</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  STICKY CANVAS                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  SCROLL SPACER (gives ScrollTrigger room)   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="scroll-spacer"></div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  TEXT OVERLAY SECTIONS                       -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <!-- Section 1: Hero (0–15%) -->
+    <section id="section-hero" class="overlay overlay--hero">
+        <div class="overlay__glow"></div>
+        <div class="overlay__content overlay__content--center">
+            <h1 class="overlay__headline overlay__headline--hero">Lumen</h1>
+            <p class="overlay__subheadline">Intelligent School Management Platform.</p>
+            <p class="overlay__body">Digitising every critical workflow across a single, cloud-hosted solution.</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Unified (15–40%) -->
+    <section id="section-unified" class="overlay overlay--unified">
+        <div class="overlay__glow overlay__glow--left"></div>
+        <div class="overlay__content overlay__content--left">
+            <p class="overlay__eyebrow">The Platform</p>
+            <h2 class="overlay__headline">Unified. Intelligent.<br>Role-based.</h2>
+            <p class="overlay__body">Tailored dashboards for every stakeholder — students track progress, teachers manage classrooms, parents stay informed, and administrators command the full picture. One platform, four powerful perspectives.</p>
+        </div>
+    </section>
+
+    <!-- Section 3: AI (40–65%) -->
+    <section id="section-ai" class="overlay overlay--ai">
+        <div class="overlay__glow overlay__glow--right"></div>
+        <div class="overlay__content overlay__content--right">
+            <p class="overlay__eyebrow">Artificial Intelligence</p>
+            <h2 class="overlay__headline">Purpose-Built<br>Educational AI.</h2>
+            <p class="overlay__body">An AI Homework Tutor delivers step-by-step explanations personalised to each student's level. Automated narrative performance summaries transform raw attendance and quiz data into meaningful, actionable insights.</p>
+        </div>
+    </section>
+
+    <!-- Section 4: Visibility (65–85%) -->
+    <section id="section-visibility" class="overlay overlay--visibility">
+        <div class="overlay__glow overlay__glow--left"></div>
+        <div class="overlay__content overlay__content--left">
+            <p class="overlay__eyebrow">Analytics & Alerts</p>
+            <h2 class="overlay__headline">Real-time visibility.<br>Data-driven decisions.</h2>
+            <p class="overlay__body">Instant absence alerts keep parents informed the moment their child misses a class. Consolidated analytics give school leadership the evidence they need to drive measurable improvement.</p>
+        </div>
+    </section>
+
+    <!-- Section 5: CTA (85–100%) -->
+    <section id="section-cta" class="overlay overlay--cta">
+        <div class="overlay__glow"></div>
+        <div class="overlay__content overlay__content--center">
+            <h2 class="overlay__headline overlay__headline--cta">Deliver a measurably better<br>educational experience.</h2>
+            <div class="overlay__actions">
+                <a href="#" class="btn btn--primary" id="cta-demo">Schedule a Live Demo</a>
+                <a href="#" class="btn btn--ghost" id="cta-proposal">View Commercial Proposal →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  SCRIPTS                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="transitions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

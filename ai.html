@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen — AI Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="internal.css">
+</head>
+<body class="page-internal page-ai">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  NAVIGATION                                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav class="nav nav--visible nav--static" role="navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__brand">
+                <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+            </a>
+                                    <ul class="nav__links">
+                <li><a href="features.html">Full Features</a></li>
+                <li><a href="students.html">For Students</a></li>
+                <li><a href="teachers.html">For Teachers</a></li>
+                <li><a href="parents.html">For Parents</a></li>
+                <li><a href="ai.html" class="active">AI Features</a></li>
+            </ul>
+            <a href="index.html#section-cta" class="nav__cta">Partner with Lumen</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  HERO SECTION                               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <header class="internal-hero">
+        <div class="container container--narrow text-center">
+            <p class="eyebrow eyebrow--center">Artificial Intelligence</p>
+            <h1 class="hero-title">A purpose-built<br>educational AI.</h1>
+            <p class="hero-subtitle">Designed to support academic integrity and transform raw data into measurable learning outcomes.</p>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  AI FEATURES                                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  AI FEATURES                                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  AI FEATURES                                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="section">
+        <div class="container">
+            <div class="ui-card-grid">
+                
+                <!-- Performance Analysis INTERACTIVE -->
+                <div class="card card--top" style="border-top: 6px solid #1E9E63; min-height: 500px;">
+                    <div class="feature-header" style="border: none; padding-bottom: 0;">
+                        <span class="badge badge--green" style="margin-bottom: 24px;">DATA SYNTHESIS</span>
+                        <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 16px;">AI Performance Analysis</h2>
+                    </div>
+
+                    <div id="performance-view-main">
+                        <p class="card__desc" style="font-size: 1.125rem; margin-bottom: 32px; line-height: 1.6;">Lumen's AI engine synthesizes raw behavioral data into actionable insights, explaining the <em>why</em> behind student performance trends.</p>
+                        <div style="background: rgba(30, 158, 99, 0.05); padding: 32px; border-radius: 12px; border: 1px dashed #1E9E63; margin-bottom: 32px;">
+                            <ul class="bullet-list" style="margin-bottom: 0;">
+                                <li>Identify learning gaps across subjects instantly</li>
+                                <li>Predict performance trends based on attendance</li>
+                                <li>Generate hyper-personalized remedial strategies</li>
+                            </ul>
+                        </div>
+                        <button class="nav__cta" onclick="toggleView('performance')" style="background: var(--color-navy); border: none; width: 100%;">View Analysis Live</button>
+                    </div>
+
+                    <div id="performance-view-alt" style="display: none;">
+                        <div style="background: #F8FBFF; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+                            <p style="font-weight: 700; color: var(--color-navy); margin-bottom: 8px;">Deductive Insight (Alex J.):</p>
+                            <p style="font-size: 0.875rem; color: var(--color-slate); line-height: 1.6;">"A 15% drop in Physics scores correlates with three missed lab sessions. Cognitive gap identified in 'Wave Mechanics' modules."</p>
+                        </div>
+                        <div style="background: white; padding: 16px; border-radius: 8px; border: 1px solid #1E9E63;">
+                            <p style="font-size: 0.8125rem; color: #1E9E63; font-weight: 700;">Remediation Plan Generated ✓</p>
+                        </div>
+                        <button class="nav__cta" onclick="toggleView('performance')" style="margin-top: 32px; background: transparent; border: 1px solid var(--color-navy); color: var(--color-navy); width: 100%;">Return to Overview</button>
+                    </div>
+                </div>
+
+                <!-- Homework Tutor INTERACTIVE -->
+                <div class="card card--top" style="background: #F8FBFF; border-top: 6px solid var(--color-blue); min-height: 500px;">
+                    <div class="feature-header" style="border: none; padding-bottom: 0;">
+                        <span class="badge badge--blue" style="margin-bottom: 24px;">GUIDED LEARNING</span>
+                        <h2 class="hero-title" style="font-size: 2rem; margin-bottom: 16px;">AI Homework Tutor</h2>
+                    </div>
+
+                    <div id="tutor-view-main">
+                        <p class="card__desc" style="font-size: 1.125rem; margin-bottom: 32px; line-height: 1.6;">Built-in guardrails prevent direct answers, focusing instead on Socratic questioning and conceptual hints to foster independence.</p>
+                        <div style="background: rgba(0, 163, 255, 0.05); padding: 32px; border-radius: 12px; border: 1px dashed var(--color-blue); margin-bottom: 32px;">
+                            <ul class="bullet-list" style="margin-bottom: 0;">
+                                <li>Socratic Dialogue Method</li>
+                                <li>Guarded Solution Prevention</li>
+                                <li>Conceptual Leap Bridging</li>
+                            </ul>
+                        </div>
+                        <button class="nav__cta" onclick="toggleView('tutor')" style="background: var(--color-blue); border: none; width: 100%;">Start Practice Session</button>
+                    </div>
+
+                    <div id="tutor-view-alt" style="display: none;">
+                        <div style="padding: 24px; background: white; border-radius: 16px; border: 1px solid rgba(0,163,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <p style="font-style: italic; color: #64748b; margin-bottom: 16px;">System: "Blocking direct answer request..."</p>
+                            <p style="color: var(--color-navy); font-weight: 600;">Lumen: "I can't give the final number, but look at the variable on the left. What happens if you subtract 4 from both sides?"</p>
+                        </div>
+                        <button class="nav__cta" onclick="toggleView('tutor')" style="margin-top: 32px; background: transparent; border: 1px solid var(--color-blue); color: var(--color-blue); width: 100%;">Reset Session</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="transitions.js"></script>
+    <script>
+        function toggleView(type) {
+            const main = document.getElementById(`${type}-view-main`);
+            const alt = document.getElementById(`${type}-view-alt`);
+            
+            if (main.style.display === 'none') {
+                main.style.display = 'block';
+                alt.style.display = 'none';
+            } else {
+                main.style.display = 'none';
+                alt.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
