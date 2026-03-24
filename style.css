@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   LUMEN — Design System & Global Styles
+   Lumin — Design System & Global Styles
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Tokens ─────────────────────────────────────────────── */
@@ -46,6 +46,12 @@ body {
     color: var(--color-slate);
     line-height: 1.6;
     overflow-x: hidden;
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 a {
@@ -88,28 +94,28 @@ ul { list-style: none; }
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 60px;
 }
 
 .nav__brand {
     display: flex;
     align-items: center;
     text-decoration: none;
+    margin-right: auto;
 }
 
 .nav__logo-img {
-    height: 38px;
+    height: 52px;
     width: auto;
     display: block;
-    mix-blend-mode: multiply; /* Helps the white background of the JPG blend into the nav */
 }
 
 .nav__links {
     display: flex;
     gap: 36px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    flex: 1;
+    justify-content: center;
 }
 
 .nav__links a {
@@ -156,6 +162,7 @@ ul { list-style: none; }
     letter-spacing: 0.01em;
     transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
     box-shadow: 0 2px 12px rgba(0, 163, 255, 0.2);
+    margin-left: auto;
 }
 
 .nav__cta:hover {
@@ -332,6 +339,81 @@ ul { list-style: none; }
     pointer-events: all;
 }
 
+/* ── Flashcards ─────────────────────────────────────────── */
+.flashcard {
+    display: block;
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 100%;
+    text-decoration: none;
+    box-shadow: 
+        0 4px 20px rgba(10, 31, 68, 0.06),
+        0 0 0 1px var(--color-glass-border);
+    transition: all 0.4s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.flashcard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-blue), #0077CC);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s var(--ease-out);
+}
+
+.flashcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 8px 32px rgba(10, 31, 68, 0.1),
+        0 0 0 1px var(--color-blue);
+}
+
+.flashcard:hover::before {
+    transform: scaleY(1);
+}
+
+.flashcard .overlay__eyebrow {
+    margin-bottom: 12px;
+}
+
+.flashcard .overlay__headline {
+    margin-bottom: 12px;
+    color: var(--color-navy);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.flashcard .overlay__body {
+    color: var(--color-slate);
+    margin-bottom: 0;
+    padding-right: 40px;
+}
+
+.flashcard__arrow {
+    position: absolute;
+    bottom: 28px;
+    right: 32px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-blue);
+    opacity: 0.6;
+    transform: translateX(0);
+    transition: all 0.4s var(--ease-out);
+}
+
+.flashcard:hover .flashcard__arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
 /* ═══════════════════════════════════════════════════════════
    BUTTONS
    ═══════════════════════════════════════════════════════════ */
@@ -436,6 +518,20 @@ ul { list-style: none; }
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .nav__inner {
+        gap: 40px;
+    }
+    
+    .nav__links {
+        gap: 24px;
+    }
+    
+    .nav__links a {
+        font-size: 0.75rem;
+    }
+}
+
 @media (max-width: 900px) {
     .nav__links { display: none; }
     .nav { padding: 0 24px; }
@@ -460,12 +556,81 @@ ul { list-style: none; }
         right: auto;
         transform: translate(-50%, -50%);
     }
+    
+    .overlay__actions {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --nav-height: 56px;
+    }
+    
+    .nav {
+        padding: 0 16px;
+    }
+    
+    .nav__logo-img {
+        height: 40px;
+    }
+    
+    .overlay__content {
+        padding: 0 20px;
+    }
+    
+    .overlay__headline {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+    }
+    
+    .overlay__headline--hero {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    
+    .overlay__subheadline {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+    }
+    
+    .overlay__body {
+        font-size: 0.9375rem;
+    }
+    
+    .btn--primary {
+        padding: 14px 28px;
+        font-size: 0.9375rem;
+        width: 100%;
+    }
+    
+    .btn--ghost {
+        font-size: 0.875rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .flashcard {
+        padding: 24px;
+        padding-bottom: 56px;
+    }
+    
+    .flashcard .overlay__body {
+        padding-right: 0;
+    }
+    
+    .flashcard__arrow {
+        bottom: 20px;
+        right: 24px;
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-width: 480px) {
     .nav__cta { display: none; }
-    .btn--primary {
-        padding: 14px 28px;
-        font-size: 0.9375rem;
+    
+    .overlay__headline {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+    }
+    
+    .overlay__headline--hero {
+        font-size: clamp(2rem, 10vw, 3rem);
     }
 }

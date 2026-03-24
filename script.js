@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   LUMEN — Scrollytelling Engine
+   Lumin — Scrollytelling Engine
    GSAP ScrollTrigger + Canvas Frame Sequencing
    ═══════════════════════════════════════════════════════════ */
 
@@ -12,11 +12,11 @@
 
     // Scroll-percentage ranges for each section (0–1 of total scroll progress)
     const SECTIONS = [
-        { id: 'section-hero',       start: 0.00, end: 0.15 },
-        { id: 'section-unified',    start: 0.15, end: 0.40 },
-        { id: 'section-ai',         start: 0.40, end: 0.65 },
-        { id: 'section-visibility', start: 0.65, end: 0.85 },
-        { id: 'section-cta',        start: 0.85, end: 1.00 },
+        { id: 'section-hero',     start: 0.00, end: 0.15 },
+        { id: 'section-students', start: 0.15, end: 0.40 },
+        { id: 'section-teachers', start: 0.40, end: 0.65 },
+        { id: 'section-parents',  start: 0.65, end: 0.85 },
+        { id: 'section-cta',      start: 0.85, end: 1.00 },
     ];
 
     /* ── DOM refs ───────────────────────────────────────── */
@@ -39,7 +39,7 @@
     const loader = document.createElement('div');
     loader.className = 'loader';
     loader.innerHTML = `
-        <div class="loader__logo">LUMEN</div>
+        <div class="loader__logo">Lumin</div>
         <div class="loader__bar-track">
             <div class="loader__bar-fill" id="loader-fill"></div>
         </div>

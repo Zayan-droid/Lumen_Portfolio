@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumen — For Parents</title>
+    <title>Lumin — For Parents</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="internal.css">
@@ -32,6 +32,26 @@
             border-color: var(--color-blue);
             background: #F8FBFF;
         }
+        
+        @media (max-width: 768px) {
+            .child-selector {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+            
+            .child-card {
+                width: 100%;
+                max-width: 400px;
+                padding: 20px 32px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .child-card {
+                padding: 16px 24px;
+            }
+        }
     </style>
 </head>
 <body class="page-internal">
@@ -40,7 +60,7 @@
     <nav class="nav nav--visible nav--static" role="navigation">
         <div class="nav__inner">
             <a href="index.html" class="nav__brand">
-                <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+                <img src="logo blue.png" alt="Lumin Logo" class="nav__logo-img">
             </a>
                                     <ul class="nav__links">
                 <li><a href="features.html">Full Features</a></li>
@@ -49,7 +69,7 @@
                 <li><a href="parents.html" class="active">For Parents</a></li>
                 <li><a href="ai.html">AI Features</a></li>
             </ul>
-            <a href="index.html#section-cta" class="nav__cta">Partner with Lumen</a>
+            <a href="waitlist.html" class="nav__cta">Join Waitlist</a>
         </div>
     </nav>
 
@@ -210,7 +230,7 @@
                 <div class="portfolio-content" id="tab-ai">
                     <div class="feature-section">
                         <div class="feature-header">
-                            <h2 class="card__title">Lumen Intelligence Report</h2>
+                            <h2 class="card__title">Lumin Intelligence Report</h2>
                         </div>
                         <div class="card" style="border-right: 6px solid var(--color-navy); overflow: hidden;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">

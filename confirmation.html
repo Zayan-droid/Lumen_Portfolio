@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're on the List — Lumin</title>
+    <meta name="description" content="Thank you for joining the Lumin waitlist. We'll be in touch soon.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="waitlist.css">
+</head>
+<body class="page-waitlist">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  NAVIGATION                                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav id="main-nav" class="nav nav--static">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__brand">
+                <img src="logo blue.png" alt="Lumin Logo" class="nav__logo-img">
+            </a>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="features.html">Full Features</a></li>
+                <li><a href="students.html">For Students</a></li>
+                <li><a href="teachers.html">For Teachers</a></li>
+                <li><a href="parents.html">For Parents</a></li>
+                <li><a href="ai.html">AI Features</a></li>
+            </ul>
+            <a href="waitlist.html" class="nav__cta">Join Waitlist</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  CONFIRMATION SECTION                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main class="confirmation-container">
+        <div class="waitlist-glow"></div>
+        
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <h1 class="confirmation-title">You're on the Waitlist!</h1>
+            <p class="confirmation-message">
+                Thank you for your interest in Lumin. We've successfully added your school to our waitlist. 
+                You'll receive an email confirmation shortly, and we'll notify you as soon as we're ready to onboard your institution.
+            </p>
+
+            <div class="confirmation-details" id="confirmation-details">
+                <!-- Details will be populated by JavaScript -->
+            </div>
+
+            <div class="confirmation-actions">
+                <a href="index.html" class="btn btn--primary">Return to Home</a>
+                <a href="features.html" class="btn btn--ghost">Explore Features →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  SCRIPTS                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <script src="transitions.js"></script>
+    <script src="confirmation.js"></script>
+</body>
+</html>

@@ -1,43 +1,61 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Setup Transition Overlay
-    const overlay = document.createElement('div');
-    overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #FFFFFF;
-        z-index: 10000;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    `;
-    document.body.appendChild(overlay);
-
-    // 2. Outgoing Animation
-    const links = document.querySelectorAll('a');
+// Ensure smooth page transitions
+(function() {
+    'use strict';
     
-    links.forEach(link => {
-        link.addEventListener('click', e => {
-            const href = link.getAttribute('href');
-            
-            if (href && 
-                href.endsWith('.html') && 
-                !href.startsWith('#') && 
-                !link.hasAttribute('target') &&
-                !e.ctrlKey && !e.shiftKey && !e.metaKey && !e.altKey) {
+    // 1. Fade in the page on load
+    function fadeInPage() {
+        if (!document.body.classList.contains('loaded')) {
+            document.body.classList.add('loaded');
+        }
+    }
+    
+    // 2. Handle outgoing navigation
+    function setupPageTransitions() {
+        const links = document.querySelectorAll('a');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
                 
-                const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-                if (href === currentFile) return;
+                if (href && 
+                    (href.endsWith('.html') || href === '/' || (!href.includes('.') && !href.startsWith('#'))) && 
+                    !href.startsWith('#') && 
+                    !this.hasAttribute('target') &&
+                    !e.ctrlKey && !e.shiftKey && !e.metaKey && !e.altKey) {
+                    
+                    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+                    const targetFile = href.split('/').pop() || 'index.html';
+                    
+                    if (href === currentFile || targetFile === currentFile) return;
 
-                e.preventDefault();
-                overlay.style.opacity = '1';
-                
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 400);
-            }
+                    e.preventDefault();
+                    
+                    // Fade out
+                    document.body.classList.remove('loaded');
+                    
+                    setTimeout(function() {
+                        window.location.href = href;
+                    }, 600);
+                }
+            });
         });
+    }
+    
+    // 3. Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(fadeInPage, 50);
+            setupPageTransitions();
+        });
+    } else {
+        setTimeout(fadeInPage, 50);
+        setupPageTransitions();
+    }
+    
+    // 4. Handle browser back/forward buttons
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.body.classList.add('loaded');
+        }
     });
-});
+})();
