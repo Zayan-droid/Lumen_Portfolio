@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Waitlist — Lumin</title>
+    <meta name="description" content="Join the Lumin waitlist and be among the first schools to experience intelligent school management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="waitlist.css">
+</head>
+<body class="page-waitlist">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  NAVIGATION                                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav id="main-nav" class="nav nav--static">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__brand">
+                <img src="logo blue.png" alt="Lumin Logo" class="nav__logo-img">
+            </a>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="features.html">Full Features</a></li>
+                <li><a href="students.html">For Students</a></li>
+                <li><a href="teachers.html">For Teachers</a></li>
+                <li><a href="parents.html">For Parents</a></li>
+                <li><a href="ai.html">AI Features</a></li>
+            </ul>
+            <a href="waitlist.html" class="nav__cta active">Join Waitlist</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  WAITLIST FORM SECTION                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main class="waitlist-container">
+        <div class="waitlist-glow"></div>
+        
+        <div class="waitlist-content">
+            <div class="waitlist-header">
+                <p class="waitlist-eyebrow">Early Access</p>
+                <h1 class="waitlist-title">Join the Lumin Waitlist</h1>
+                <p class="waitlist-subtitle">Be among the first schools to experience intelligent, unified school management. We'll notify you as soon as we're ready to onboard your institution.</p>
+            </div>
+
+            <form id="waitlist-form" class="waitlist-form" novalidate>
+                <div class="form-group">
+                    <label for="school-name" class="form-label">School Name <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="school-name" 
+                        name="schoolName" 
+                        class="form-input" 
+                        placeholder="Enter your school's name"
+                        required
+                    >
+                    <span class="form-error" id="error-school-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-count" class="form-label">Number of Students <span class="required">*</span></label>
+                    <input 
+                        type="number" 
+                        id="student-count" 
+                        name="studentCount" 
+                        class="form-input" 
+                        placeholder="e.g., 500"
+                        min="1"
+                        required
+                    >
+                    <span class="form-error" id="error-student-count"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email" class="form-label">Contact Email <span class="required">*</span></label>
+                    <input 
+                        type="email" 
+                        id="contact-email" 
+                        name="contactEmail" 
+                        class="form-input" 
+                        placeholder="admin@yourschool.edu"
+                        required
+                    >
+                    <span class="form-error" id="error-contact-email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="city" class="form-label">City <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="city" 
+                        name="city" 
+                        class="form-input" 
+                        placeholder="Enter your city"
+                        required
+                    >
+                    <span class="form-error" id="error-city"></span>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--full">
+                    <span class="btn-text">Join Waitlist</span>
+                    <span class="btn-loader"></span>
+                </button>
+
+                <p class="form-note">We respect your privacy. Your information will only be used to contact you about Lumin.</p>
+            </form>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  SCRIPTS                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <script src="transitions.js"></script>
+    <script src="waitlist.js"></script>
+</body>
+</html>

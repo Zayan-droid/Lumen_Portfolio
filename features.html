@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumen — Interactive Portfolio</title>
+    <title>Lumin — Interactive Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="internal.css">
@@ -64,6 +64,26 @@
             color: var(--color-slate);
             line-height: 1.6;
         }
+        
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .feature-card {
+                padding: 20px;
+            }
+            
+            .feature-title {
+                font-size: 1rem;
+            }
+            
+            .feature-desc {
+                font-size: 0.875rem;
+            }
+        }
     </style>
 </head>
 <body class="page-internal">
@@ -72,7 +92,7 @@
     <nav class="nav nav--visible nav--static" role="navigation">
         <div class="nav__inner">
             <a href="index.html" class="nav__brand">
-                <img src="lumen-logo.jpeg" alt="Lumen Logo" class="nav__logo-img">
+                <img src="logo blue.png" alt="Lumin Logo" class="nav__logo-img">
             </a>
                                     <ul class="nav__links">
                 <li><a href="features.html" class="active">Full Features</a></li>
@@ -81,7 +101,7 @@
                 <li><a href="parents.html">For Parents</a></li>
                 <li><a href="ai.html">AI Features</a></li>
             </ul>
-            <a href="index.html#section-cta" class="nav__cta">Partner with Lumen</a>
+            <a href="waitlist.html" class="nav__cta">Join Waitlist</a>
         </div>
     </nav>
 
@@ -89,7 +109,7 @@
     <header class="internal-hero">
         <div class="container container--narrow text-center">
             <p class="eyebrow eyebrow--center">Interactive Portfolio</p>
-            <h1 class="hero-title">LUMEN School Management System.</h1>
+            <h1 class="hero-title">Lumin School Management System.</h1>
             <p class="hero-subtitle">Explore the comprehensive Product Requirements Document mapping out every critical workflow across General Access, Students, Teachers, Parents, and Administrators.</p>
         </div>
     </header>
@@ -176,7 +196,7 @@
                     <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">Meeting Oversight</h3><p class="feature-desc">A master view of all scheduled PTMs. Admins can intervene resolving conflicts or providing unified virtual links.</p></div>
                     <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">Financial & Admin Tools</h3><p class="feature-desc">Fee invoicing, ID card generation, and an Attendance Archive for manual overrides.</p></div>
                     <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">AI Analytics</h3><p class="feature-desc">Heatmaps for academic performance, teacher punctuality, and "Retention Risk" flagging for disengaged students.</p></div>
-                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">System Settings</h3><p class="feature-desc">Global branding management (LUMEN logo), contact details, and SMS/Email gateway configurations.</p></div>
+                    <div class="feature-card"><span class="feature-badge">MODULE</span><h3 class="feature-title">System Settings</h3><p class="feature-desc">Global branding management (Lumin logo), contact details, and SMS/Email gateway configurations.</p></div>
                 </div>
             </div>
 

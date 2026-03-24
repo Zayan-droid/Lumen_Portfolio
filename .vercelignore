@@ -1,0 +1,10 @@
+node_modules
+.git
+.vscode
+.idea
+*.log
+.DS_Store
+.env
+waitlist-data.json
+*.md
+.gitignore
