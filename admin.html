@@ -24,6 +24,11 @@
 
         .admin-header {
             margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .admin-title {
@@ -31,6 +36,23 @@
             font-weight: 800;
             color: var(--color-navy);
             margin-bottom: 12px;
+        }
+
+        .logout-btn {
+            padding: 8px 20px;
+            background: transparent;
+            color: #D33D3D;
+            border: 1.5px solid #D33D3D;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #D33D3D;
+            color: white;
         }
 
         .stats-grid {
@@ -61,6 +83,7 @@
             font-weight: 500;
         }
 
+        /* ── Table ───────────────────────────────── */
         .table-container {
             background: var(--color-white);
             border-radius: 12px;
@@ -75,6 +98,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .table-title {
@@ -83,10 +108,57 @@
             color: var(--color-navy);
         }
 
-        .refresh-btn {
+        .table-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Search Bar ──────────────────────────── */
+        .search-bar {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(10, 31, 68, 0.06);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            background: #FAFBFC;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 16px;
+            font-family: var(--font-family);
+            font-size: 0.875rem;
+            color: var(--color-navy);
+            background: var(--color-white);
+            border: 1.5px solid rgba(10, 31, 68, 0.1);
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 3px rgba(0, 163, 255, 0.1);
+        }
+
+        .status-select {
+            padding: 10px 16px;
+            font-family: var(--font-family);
+            font-size: 0.875rem;
+            color: var(--color-navy);
+            background: var(--color-white);
+            border: 1.5px solid rgba(10, 31, 68, 0.1);
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* ── Buttons ─────────────────────────────── */
+        .refresh-btn, .export-btn {
             padding: 8px 16px;
-            background: var(--color-blue);
-            color: white;
             border: none;
             border-radius: 6px;
             font-weight: 600;
@@ -95,11 +167,28 @@
             transition: all 0.3s ease;
         }
 
+        .refresh-btn {
+            background: var(--color-blue);
+            color: white;
+        }
+
         .refresh-btn:hover {
             background: #0077CC;
             transform: translateY(-1px);
         }
 
+        .export-btn {
+            background: #E0F8EC;
+            color: #1E9E63;
+        }
+
+        .export-btn:hover {
+            background: #1E9E63;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* ── Table Styles ────────────────────────── */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -140,20 +229,9 @@
             letter-spacing: 0.05em;
         }
 
-        .status-pending {
-            background: #FFF5D1;
-            color: #E5A31E;
-        }
-
-        .status-contacted {
-            background: #E6F3FF;
-            color: var(--color-blue);
-        }
-
-        .status-onboarded {
-            background: #E0F8EC;
-            color: #1E9E63;
-        }
+        .status-pending { background: #FFF5D1; color: #E5A31E; }
+        .status-contacted { background: #E6F3FF; color: var(--color-blue); }
+        .status-onboarded { background: #E0F8EC; color: #1E9E63; }
 
         .action-btn {
             padding: 6px 12px;
@@ -166,214 +244,252 @@
             transition: all 0.2s ease;
         }
 
-        .btn-update {
-            background: #E6F3FF;
-            color: var(--color-blue);
+        .btn-update { background: #E6F3FF; color: var(--color-blue); }
+        .btn-update:hover { background: var(--color-blue); color: white; }
+        .btn-delete { background: #FEEDED; color: #D33D3D; }
+        .btn-delete:hover { background: #D33D3D; color: white; }
+
+        .empty-state, .loading {
+            padding: 60px 24px;
+            text-align: center;
+            color: var(--color-slate);
         }
 
-        .btn-update:hover {
-            background: var(--color-blue);
+        /* ═══════════════════════════════════════════
+           LOGIN OVERLAY
+           ═══════════════════════════════════════════ */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: linear-gradient(135deg, #0A1F44 0%, #162d5a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .login-logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-navy);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .login-subtitle {
+            font-size: 0.875rem;
+            color: var(--color-slate);
+            margin-bottom: 32px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: var(--font-family);
+            font-size: 0.9375rem;
+            color: var(--color-navy);
+            background: #F8F9FA;
+            border: 1.5px solid rgba(10, 31, 68, 0.1);
+            border-radius: 10px;
+            outline: none;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .login-input:focus {
+            border-color: var(--color-blue);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 163, 255, 0.12);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--color-blue), #0077CC);
             color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .btn-delete {
-            background: #FEEDED;
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 163, 255, 0.3);
+        }
+
+        .login-error {
             color: #D33D3D;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-top: 12px;
+            min-height: 20px;
         }
 
-        .btn-delete:hover {
-            background: #D33D3D;
-            color: white;
-        }
-
-        .empty-state {
-            padding: 60px 24px;
-            text-align: center;
-            color: var(--color-slate);
-        }
-
-        .loading {
-            padding: 60px 24px;
-            text-align: center;
-            color: var(--color-slate);
-        }
-        
+        /* ── Responsive ──────────────────────────── */
         @media (max-width: 1024px) {
-            .admin-container {
-                padding: 32px 24px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 16px;
-            }
+            .admin-container { padding: 32px 24px; }
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
         }
-        
+
         @media (max-width: 768px) {
-            .admin-page {
-                padding-top: calc(var(--nav-height) + 32px);
-            }
-            
-            .admin-container {
-                padding: 24px 20px;
-            }
-            
-            .admin-title {
-                font-size: 2rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            
-            .stat-card {
-                padding: 20px;
-            }
-            
-            .stat-value {
-                font-size: 1.75rem;
-            }
-            
-            .table-header {
-                padding: 16px 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            
-            .refresh-btn {
-                width: 100%;
-            }
-            
-            .table-container {
-                overflow-x: auto;
-            }
-            
-            table {
-                min-width: 800px;
-            }
-            
-            th, td {
-                padding: 12px 16px;
-                font-size: 0.875rem;
-            }
+            .admin-page { padding-top: calc(var(--nav-height) + 32px); }
+            .admin-container { padding: 24px 20px; }
+            .admin-title { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stat-card { padding: 20px; }
+            .stat-value { font-size: 1.75rem; }
+            .table-header { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+            .table-actions { width: 100%; }
+            .refresh-btn, .export-btn { flex: 1; }
+            .table-container { overflow-x: auto; }
+            table { min-width: 800px; }
+            th, td { padding: 12px 16px; font-size: 0.875rem; }
+            .login-card { margin: 20px; padding: 36px 28px; }
         }
-        
+
         @media (max-width: 600px) {
-            .admin-container {
-                padding: 20px 16px;
-            }
-            
-            .admin-title {
-                font-size: 1.75rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat-card {
-                padding: 16px;
-            }
-            
-            .stat-value {
-                font-size: 1.5rem;
-            }
-            
-            .stat-label {
-                font-size: 0.8125rem;
-            }
-            
-            .table-title {
-                font-size: 1.125rem;
-            }
-            
-            th, td {
-                padding: 10px 12px;
-                font-size: 0.8125rem;
-            }
-            
-            .action-btn {
-                padding: 4px 8px;
-                font-size: 0.75rem;
-                margin: 2px;
-            }
+            .admin-container { padding: 20px 16px; }
+            .admin-title { font-size: 1.75rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-card { padding: 16px; }
+            .stat-value { font-size: 1.5rem; }
+            .stat-label { font-size: 0.8125rem; }
+            .table-title { font-size: 1.125rem; }
+            th, td { padding: 10px 12px; font-size: 0.8125rem; }
+            .action-btn { padding: 4px 8px; font-size: 0.75rem; margin: 2px; }
+            .search-bar { padding: 12px 16px; }
         }
-        
+
         @media (max-width: 480px) {
-            .admin-header {
-                margin-bottom: 24px;
-            }
-            
-            .stats-grid {
-                margin-bottom: 24px;
-            }
-            
-            table {
-                min-width: 700px;
-            }
+            .admin-header { margin-bottom: 24px; }
+            .stats-grid { margin-bottom: 24px; }
+            table { min-width: 700px; }
         }
     </style>
 </head>
 <body class="admin-page">
 
-    <nav id="main-nav" class="nav nav--static">
-        <div class="nav__inner">
-            <a href="index.html" class="nav__brand">
-                <img src="logo blue.png" alt="Lumin Logo" class="nav__logo-img">
-            </a>
-            <ul class="nav__links">
-                <li><a href="features.html">Full Features</a></li>
-                <li><a href="students.html">For Students</a></li>
-                <li><a href="teachers.html">For Teachers</a></li>
-                <li><a href="parents.html">For Parents</a></li>
-                <li><a href="ai.html">AI Features</a></li>
-            </ul>
-            <a href="waitlist.html" class="nav__cta">Join Waitlist</a>
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  LOGIN OVERLAY                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card">
+            <div class="login-logo">Lumin Admin</div>
+            <p class="login-subtitle">Enter your admin password to continue</p>
+            <form onsubmit="handleLogin(event)">
+                <input 
+                    type="password" 
+                    id="admin-password" 
+                    class="login-input" 
+                    placeholder="Enter admin password"
+                    autocomplete="current-password"
+                    required
+                >
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+            <p class="login-error" id="login-error"></p>
         </div>
-    </nav>
+    </div>
 
-    <div class="admin-container">
-        <div class="admin-header">
-            <h1 class="admin-title">Waitlist Dashboard</h1>
-            <p style="color: var(--color-slate);">Manage schools interested in Lumin</p>
-        </div>
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  DASHBOARD CONTENT                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div id="dashboard-content" style="display: none;">
+        <nav id="main-nav" class="nav nav--visible nav--static">
+            <div class="nav__inner">
+                <a href="index.html" class="nav__brand">
+                    <img src="logo blue.png" alt="Lumin Logo" class="nav__logo-img">
+                </a>
+                <ul class="nav__links">
+                    <li><a href="features.html">Full Features</a></li>
+                    <li><a href="students.html">For Students</a></li>
+                    <li><a href="teachers.html">For Teachers</a></li>
+                    <li><a href="parents.html">For Parents</a></li>
+                    <li><a href="ai.html">AI Features</a></li>
+                </ul>
+                <a href="waitlist.html" class="nav__cta">Join Waitlist</a>
+            </div>
+        </nav>
 
-        <div class="stats-grid" id="stats-grid">
-            <div class="stat-card">
-                <div class="stat-value" id="stat-total">-</div>
-                <div class="stat-label">Total Schools</div>
+        <div class="admin-container">
+            <div class="admin-header">
+                <div>
+                    <h1 class="admin-title">Waitlist Dashboard</h1>
+                    <p style="color: var(--color-slate);">Manage schools interested in Lumin</p>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-pending">-</div>
-                <div class="stat-label">Pending</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-contacted">-</div>
-                <div class="stat-label">Contacted</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-onboarded">-</div>
-                <div class="stat-label">Onboarded</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-students">-</div>
-                <div class="stat-label">Total Students</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="stat-cities">-</div>
-                <div class="stat-label">Cities</div>
-            </div>
-        </div>
 
-        <div class="table-container">
-            <div class="table-header">
-                <h2 class="table-title">Waitlist Entries</h2>
-                <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-total">-</div>
+                    <div class="stat-label">Total Schools</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-pending">-</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-contacted">-</div>
+                    <div class="stat-label">Contacted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-onboarded">-</div>
+                    <div class="stat-label">Onboarded</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-students">-</div>
+                    <div class="stat-label">Total Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-cities">-</div>
+                    <div class="stat-label">Cities</div>
+                </div>
             </div>
-            <div id="table-content">
-                <div class="loading">Loading...</div>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h2 class="table-title">Waitlist Entries</h2>
+                    <div class="table-actions">
+                        <button class="export-btn" onclick="exportCSV()">📥 Export CSV</button>
+                        <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input" 
+                        placeholder="Search by school name, email, or city..."
+                        oninput="handleSearch()"
+                    >
+                    <select id="status-filter" class="status-select" onchange="handleSearch()">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="onboarded">Onboarded</option>
+                    </select>
+                </div>
+                <div id="table-content">
+                    <div class="loading">Loading...</div>
+                </div>
             </div>
         </div>
     </div>

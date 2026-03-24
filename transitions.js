@@ -41,18 +41,41 @@
         });
     }
     
-    // 3. Initialize on DOM ready
+    // 4. Mobile hamburger menu toggle
+    function setupHamburgerMenu() {
+        const hamburger = document.querySelector('.nav__hamburger');
+        const navLinks = document.querySelector('.nav__links');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function () {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('mobile-open');
+            });
+
+            // Close menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
+                });
+            });
+        }
+    }
+
+    // 5. Initialize on DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(fadeInPage, 50);
             setupPageTransitions();
+            setupHamburgerMenu();
         });
     } else {
         setTimeout(fadeInPage, 50);
         setupPageTransitions();
+        setupHamburgerMenu();
     }
     
-    // 4. Handle browser back/forward buttons
+    // 6. Handle browser back/forward buttons
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
             document.body.classList.add('loaded');

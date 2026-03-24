@@ -125,7 +125,7 @@
         };
 
         // Send to backend API
-        fetch('http://localhost:3000/api/waitlist', {
+        fetch('/api/waitlist', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
