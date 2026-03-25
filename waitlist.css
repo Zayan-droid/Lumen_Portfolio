@@ -363,11 +363,11 @@
 @media (max-width: 640px) {
     .waitlist-container,
     .confirmation-container {
-        padding: calc(var(--nav-height) + 40px) 24px 40px;
+        padding: calc(var(--nav-height) + 40px) 20px 40px;
     }
 
     .waitlist-form {
-        padding: 32px 24px;
+        padding: 32px 20px;
     }
     
     .waitlist-title {
@@ -385,16 +385,18 @@
     
     .form-label {
         font-size: 0.8125rem;
+        margin-bottom: 10px;
     }
     
     .form-input {
-        padding: 12px 14px;
-        font-size: 0.875rem;
+        padding: 14px 16px; /* Slightly larger touch target */
+        font-size: 1rem; /* Prevent zoom on iOS */
     }
     
     .btn--full {
-        padding: 14px 28px;
-        font-size: 0.9375rem;
+        padding: 16px 28px;
+        font-size: 1rem;
+        min-height: 52px; /* Minimum mobile touch target height */
     }
     
     .form-note {
@@ -427,11 +429,12 @@
 @media (max-width: 480px) {
     .waitlist-container,
     .confirmation-container {
-        padding: calc(var(--nav-height) + 32px) 16px 32px;
+        padding: calc(var(--nav-height) + 24px) 12px 32px;
     }
     
     .waitlist-form {
-        padding: 24px 20px;
+        padding: 24px 16px;
+        border-radius: 12px;
     }
     
     .waitlist-title {
@@ -439,12 +442,16 @@
     }
     
     .waitlist-glow {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
     
     .form-group {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
+    }
+
+    .form-input {
+        padding: 12px 14px;
     }
     
     .confirmation-icon {

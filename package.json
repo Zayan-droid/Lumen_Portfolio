@@ -2,10 +2,10 @@
   "name": "Lumin-waitlist",
   "version": "1.0.0",
   "description": "Lumin School Management Platform - Waitlist Backend",
-  "main": "server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node api/index.js",
+    "dev": "node api/index.js"
   },
   "dependencies": {
     "sharp": "^0.34.5",

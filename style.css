@@ -170,6 +170,47 @@ ul { list-style: none; }
     box-shadow: 0 4px 24px rgba(0, 163, 255, 0.35);
 }
 
+/* ── Hamburger Toggle ──────────────────────────────────── */
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav__toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-navy);
+    border-radius: 2px;
+    transition: all 0.3s var(--ease-out);
+    transform-origin: center;
+}
+
+.nav__toggle.active .nav__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle.active .nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav__toggle.active .nav__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ═══════════════════════════════════════════════════════════
    CANVAS
    ═══════════════════════════════════════════════════════════ */
@@ -533,7 +574,56 @@ ul { list-style: none; }
 }
 
 @media (max-width: 900px) {
-    .nav__links { display: none; }
+    .nav__toggle { display: flex; }
+
+    .nav__links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--color-glass-border);
+        padding: 16px 24px 24px;
+        gap: 0;
+        box-shadow: 0 12px 32px rgba(10, 31, 68, 0.08);
+    }
+
+    .nav__links.nav__links--open {
+        display: flex;
+    }
+
+    .nav__links li {
+        width: 100%;
+    }
+
+    .nav__links a {
+        display: block;
+        padding: 14px 0;
+        font-size: 0.9375rem;
+        border-bottom: 1px solid rgba(10, 31, 68, 0.06);
+    }
+
+    .nav__links li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav__cta--desktop {
+        display: none;
+    }
+
+    .nav__cta--mobile {
+        display: block;
+        text-align: center;
+        margin-top: 12px;
+        padding: 14px 24px;
+        font-size: 0.9375rem;
+        border-radius: 10px;
+    }
+
     .nav { padding: 0 24px; }
 
     .overlay__content {
@@ -560,6 +650,22 @@ ul { list-style: none; }
     .overlay__actions {
         width: 100%;
     }
+
+    /* Scale down glow on mobile */
+    .overlay__glow {
+        width: 400px;
+        height: 400px;
+    }
+
+    .overlay--hero .overlay__glow {
+        width: 500px;
+        height: 500px;
+    }
+
+    .overlay--cta .overlay__glow {
+        width: 600px;
+        height: 600px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -580,19 +686,20 @@ ul { list-style: none; }
     }
     
     .overlay__headline {
-        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
     }
     
     .overlay__headline--hero {
-        font-size: clamp(2.5rem, 10vw, 4rem);
+        font-size: clamp(2.25rem, 10vw, 3.5rem);
     }
     
     .overlay__subheadline {
-        font-size: clamp(1rem, 4vw, 1.25rem);
+        font-size: 1.125rem;
     }
     
     .overlay__body {
         font-size: 0.9375rem;
+        line-height: 1.6;
     }
     
     .btn--primary {
@@ -609,7 +716,7 @@ ul { list-style: none; }
     
     .flashcard {
         padding: 24px;
-        padding-bottom: 56px;
+        padding-bottom: 60px;
     }
     
     .flashcard .overlay__body {
@@ -621,16 +728,41 @@ ul { list-style: none; }
         right: 24px;
         font-size: 1.25rem;
     }
+
+    .overlay__glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .overlay--hero .overlay__glow {
+        width: 400px;
+        height: 400px;
+    }
+
+    .overlay__actions {
+        gap: 12px;
+    }
 }
 
 @media (max-width: 480px) {
-    .nav__cta { display: none; }
-    
     .overlay__headline {
-        font-size: clamp(1.5rem, 8vw, 2rem);
+        font-size: 1.75rem;
     }
     
     .overlay__headline--hero {
-        font-size: clamp(2rem, 10vw, 3rem);
+        font-size: 2.25rem;
+    }
+
+    .overlay__content {
+        padding: 0 16px;
+    }
+
+    .flashcard {
+        padding: 20px;
+        padding-bottom: 56px;
+    }
+
+    .flashcard .overlay__headline {
+        font-size: 1.5rem;
     }
 }

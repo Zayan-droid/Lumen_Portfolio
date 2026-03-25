@@ -8,3 +8,11 @@ node_modules
 waitlist-data.json
 *.md
 .gitignore
+ezgif-frame-*.png
+Lumin_Product_Proposal.pdf
+Lumin_lgo_blue.jpeg
+lumin-logo.jpeg
+lumin-logo.jpg
+optimize-frames.js
+lumen/
+pdf_output.txt

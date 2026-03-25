@@ -545,6 +545,24 @@
         grid-template-columns: 1fr !important;
     }
     
+    /* Specific fix for Chat/Sidebar layout found in Teachers/Admin */
+    [style*="grid-template-columns: 300px 1fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Wrap tables to prevent layout breaking */
+    .table-responsive, 
+    div:has(> table) {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 24px;
+    }
+
+    table {
+        min-width: 600px; /* Ensure tables don't squash too much */
+    }
+    
     /* Stack flex containers with gaps */
     [style*="display: flex"][style*="gap"] {
         flex-wrap: wrap;
@@ -558,12 +576,19 @@
     [style*="padding: 40px"] {
         padding: 28px !important;
     }
+
+    /* Fix user avatar sizes in headers */
+    .user-profile {
+        flex-direction: row !important; /* Keep avatar and name side-by-side if possible */
+        align-items: center !important;
+    }
 }
 
 @media (max-width: 600px) {
     /* Reduce large font sizes */
     [style*="font-size: 2.5rem"],
-    [style*="font-size: 2.25rem"] {
+    [style*="font-size: 2.25rem"],
+    .hero-title {
         font-size: 1.75rem !important;
     }
     
@@ -577,10 +602,6 @@
     
     [style*="font-size: 1.5rem"] {
         font-size: 1.25rem !important;
-    }
-    
-    [style*="font-size: 1.25rem"] {
-        font-size: 1.125rem !important;
     }
     
     [style*="font-size: 1.125rem"] {
@@ -599,9 +620,17 @@
     }
     
     /* Make buttons full width when in flex containers */
-    [style*="display: flex"] button {
+    [style*="display: flex"] button,
+    .nav__cta {
         flex: 1 1 auto;
-        min-width: 120px;
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    /* Handle the dual-button pattern in tables (Present/Absent) */
+    [style*="justify-content: flex-end"] {
+        justify-content: flex-start !important;
+        gap: 8px !important;
     }
 }
 
