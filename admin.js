@@ -2,28 +2,122 @@
    Lumin — Admin Dashboard JavaScript
    ═══════════════════════════════════════════════════════════ */
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = '/api';
 
-// Load all data on page load
+// ─── Auth Helpers ───────────────────────────────────────
+function getAdminPassword() {
+    return sessionStorage.getItem('lumin_admin_password');
+}
+
+function setAdminPassword(password) {
+    sessionStorage.setItem('lumin_admin_password', password);
+}
+
+function clearAdminPassword() {
+    sessionStorage.removeItem('lumin_admin_password');
+}
+
+function adminHeaders() {
+    return {
+        'Content-Type': 'application/json',
+        'x-admin-password': getAdminPassword() || ''
+    };
+}
+
+// ─── Login / Logout ─────────────────────────────────────
+async function handleLogin(e) {
+    e.preventDefault();
+    const input = document.getElementById('admin-password-input');
+    const errorEl = document.getElementById('login-error');
+    const password = input.value.trim();
+
+    if (!password) {
+        errorEl.textContent = 'Please enter a password';
+        return;
+    }
+
+    errorEl.textContent = '';
+
+    try {
+        const res = await fetch(`${API_URL}/admin/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            setAdminPassword(password);
+            showDashboard();
+            loadData();
+        } else {
+            errorEl.textContent = 'Incorrect password';
+            input.value = '';
+            input.focus();
+        }
+    } catch (error) {
+        errorEl.textContent = 'Server error — is the server running?';
+    }
+}
+
+function handleLogout() {
+    clearAdminPassword();
+    showLoginGate();
+}
+
+function showDashboard() {
+    document.getElementById('login-gate').style.display = 'none';
+    document.getElementById('dashboard-content').style.display = 'block';
+}
+
+function showLoginGate() {
+    document.getElementById('login-gate').style.display = 'flex';
+    document.getElementById('dashboard-content').style.display = 'none';
+    const input = document.getElementById('admin-password-input');
+    if (input) { input.value = ''; input.focus(); }
+}
+
+// ─── Init ───────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-    loadData();
+    // Bind login form
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) loginForm.addEventListener('submit', handleLogin);
+
+    // Bind logout button
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+
+    // If already have a stored password, try loading data directly
+    if (getAdminPassword()) {
+        showDashboard();
+        loadData();
+    } else {
+        showLoginGate();
+    }
 });
 
-// Load waitlist data and statistics
+// ─── Load Data ──────────────────────────────────────────
 async function loadData() {
     try {
         // Load statistics
-        const statsResponse = await fetch(`${API_URL}/stats`);
+        const statsResponse = await fetch(`${API_URL}/stats`, { headers: adminHeaders() });
+
+        if (statsResponse.status === 401) {
+            clearAdminPassword();
+            showLoginGate();
+            return;
+        }
+
         const statsData = await statsResponse.json();
-        
         if (statsData.success) {
             updateStats(statsData.stats);
         }
 
         // Load waitlist entries
-        const waitlistResponse = await fetch(`${API_URL}/waitlist`);
+        const waitlistResponse = await fetch(`${API_URL}/waitlist`, { headers: adminHeaders() });
         const waitlistData = await waitlistResponse.json();
-        
+
         if (waitlistData.success) {
             renderTable(waitlistData.schools);
         }
@@ -52,7 +146,7 @@ function updateStats(stats) {
 // Render table with waitlist entries
 function renderTable(schools) {
     const tableContent = document.getElementById('table-content');
-    
+
     if (schools.length === 0) {
         tableContent.innerHTML = `
             <div class="empty-state">
@@ -121,16 +215,15 @@ async function updateStatus(id, currentStatus) {
     try {
         const response = await fetch(`${API_URL}/waitlist/${id}`, {
             method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: adminHeaders(),
             body: JSON.stringify({ status: nextStatus })
         });
 
-        const data = await response.json();
+        if (response.status === 401) { clearAdminPassword(); showLoginGate(); return; }
 
+        const data = await response.json();
         if (data.success) {
-            loadData(); // Reload data
+            loadData();
         } else {
             alert('Error updating status: ' + data.message);
         }
@@ -147,13 +240,15 @@ async function deleteSchool(id, schoolName) {
 
     try {
         const response = await fetch(`${API_URL}/waitlist/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: adminHeaders()
         });
 
-        const data = await response.json();
+        if (response.status === 401) { clearAdminPassword(); showLoginGate(); return; }
 
+        const data = await response.json();
         if (data.success) {
-            loadData(); // Reload data
+            loadData();
         } else {
             alert('Error deleting school: ' + data.message);
         }
@@ -186,10 +281,10 @@ function formatDate(dateString) {
     if (diffMins < 60) return `${diffMins}m ago`;
     if (diffHours < 24) return `${diffHours}h ago`;
     if (diffDays < 7) return `${diffDays}d ago`;
-    
-    return date.toLocaleDateString('en-US', { 
-        month: 'short', 
-        day: 'numeric', 
-        year: 'numeric' 
+
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
     });
 }

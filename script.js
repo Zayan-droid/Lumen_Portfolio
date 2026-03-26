@@ -1,14 +1,20 @@
 /* ═══════════════════════════════════════════════════════════
    Lumin — Scrollytelling Engine
-   GSAP ScrollTrigger + Canvas Frame Sequencing
+   GSAP ScrollTrigger + Canvas Frame Sequencing (Optimized)
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
     'use strict';
 
     /* ── Configuration ──────────────────────────────────── */
-    const FRAME_COUNT  = 240;
-    const FRAME_PATH   = (i) => `ezgif-frame-${String(i).padStart(3, '0')}.webp`;
+    // Detect mobile for optimization
+    const IS_MOBILE = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Use fewer frames on mobile for better performance
+    const FRAME_STEP = IS_MOBILE ? 4 : 2; // Every 4th frame on mobile, every 2nd on desktop
+    const TOTAL_FRAMES = 240;
+    const FRAME_COUNT = Math.floor(TOTAL_FRAMES / FRAME_STEP);
+    const FRAME_PATH = (i) => `ezgif-frame-${String(i * FRAME_STEP + 1).padStart(3, '0')}.webp`;
 
     // Scroll-percentage ranges for each section (0–1 of total scroll progress)
     const SECTIONS = [
@@ -21,13 +27,15 @@
 
     /* ── DOM refs ───────────────────────────────────────── */
     const canvas  = document.getElementById('hero-canvas');
-    const ctx     = canvas.getContext('2d');
+    const ctx     = canvas.getContext('2d', { alpha: false });
     const nav     = document.getElementById('main-nav');
 
     /* ── State ──────────────────────────────────────────── */
     const images       = [];
+    const loadedFrames = new Set();
     let   currentFrame = 0;
     let   canvasW, canvasH;
+    let   isLoading = false;
 
     // Track active section for overlay management
     const sectionEls   = {};
@@ -51,55 +59,130 @@
     const loaderPct  = document.getElementById('loader-pct');
 
     /* ═══════════════════════════════════════════════════════
-       2. PRELOAD IMAGES
+       2. OPTIMIZED IMAGE LOADING
        ═══════════════════════════════════════════════════════ */
-    function preloadImages() {
+    
+    // Load a single frame
+    function loadFrame(index) {
         return new Promise((resolve) => {
-            let loaded = 0;
-
-            for (let i = 1; i <= FRAME_COUNT; i++) {
-                const img = new Image();
-                img.src = FRAME_PATH(i);
-
-                img.onload = img.onerror = () => {
-                    loaded++;
-                    const pct = Math.round((loaded / FRAME_COUNT) * 100);
-                    loaderFill.style.width = pct + '%';
-                    loaderPct.textContent  = pct + ' %';
-
-                    if (loaded === FRAME_COUNT) {
-                        resolve();
-                    }
-                };
-
-                images.push(img);
+            if (loadedFrames.has(index)) {
+                resolve(images[index]);
+                return;
             }
+
+            const img = new Image();
+            img.onload = () => {
+                loadedFrames.add(index);
+                resolve(img);
+            };
+            img.onerror = () => {
+                console.warn(`Failed to load frame ${index}`);
+                resolve(null);
+            };
+            img.src = FRAME_PATH(index);
+            images[index] = img;
         });
+    }
+
+    // Preload critical frames (first 10% for smooth start)
+    async function preloadCriticalFrames() {
+        const criticalCount = Math.ceil(FRAME_COUNT * 0.1); // First 10%
+        const promises = [];
+        
+        for (let i = 0; i < criticalCount; i++) {
+            promises.push(loadFrame(i));
+        }
+
+        let loaded = 0;
+        for (const promise of promises) {
+            await promise;
+            loaded++;
+            const pct = Math.round((loaded / criticalCount) * 100);
+            loaderFill.style.width = pct + '%';
+            loaderPct.textContent = pct + ' %';
+        }
+    }
+
+    // Lazy load remaining frames in background
+    function lazyLoadRemainingFrames() {
+        const criticalCount = Math.ceil(FRAME_COUNT * 0.1);
+        
+        // Load remaining frames in chunks
+        const chunkSize = 5;
+        let currentIndex = criticalCount;
+
+        function loadNextChunk() {
+            if (currentIndex >= FRAME_COUNT) return;
+
+            const promises = [];
+            for (let i = 0; i < chunkSize && currentIndex < FRAME_COUNT; i++, currentIndex++) {
+                promises.push(loadFrame(currentIndex));
+            }
+
+            Promise.all(promises).then(() => {
+                // Use requestIdleCallback if available, otherwise setTimeout
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(loadNextChunk);
+                } else {
+                    setTimeout(loadNextChunk, 50);
+                }
+            });
+        }
+
+        loadNextChunk();
+    }
+
+    // Preload frames around current position for smooth scrolling
+    function preloadNearbyFrames(centerFrame) {
+        const range = IS_MOBILE ? 3 : 5;
+        const start = Math.max(0, centerFrame - range);
+        const end = Math.min(FRAME_COUNT - 1, centerFrame + range);
+
+        for (let i = start; i <= end; i++) {
+            if (!loadedFrames.has(i)) {
+                loadFrame(i);
+            }
+        }
     }
 
     /* ═══════════════════════════════════════════════════════
        3. CANVAS RENDERER
        ═══════════════════════════════════════════════════════ */
     function sizeCanvas() {
+        const dpr = IS_MOBILE ? 1 : Math.min(window.devicePixelRatio || 1, 2);
         canvasW = window.innerWidth;
         canvasH = window.innerHeight;
-        canvas.width  = canvasW;
-        canvas.height = canvasH;
-        canvas.style.width  = canvasW + 'px';
+        
+        canvas.width = canvasW * dpr;
+        canvas.height = canvasH * dpr;
+        canvas.style.width = canvasW + 'px';
         canvas.style.height = canvasH + 'px';
+        
+        ctx.scale(dpr, dpr);
         ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
+        ctx.imageSmoothingQuality = IS_MOBILE ? 'medium' : 'high';
+        
         drawFrame(currentFrame);
     }
 
     function drawFrame(index) {
         const img = images[index];
-        if (!img || !img.complete) return;
+        if (!img || !img.complete) {
+            // If frame not loaded yet, load it
+            if (!loadedFrames.has(index) && !isLoading) {
+                isLoading = true;
+                loadFrame(index).then(() => {
+                    isLoading = false;
+                    drawFrame(index);
+                });
+            }
+            return;
+        }
 
         ctx.clearRect(0, 0, canvasW, canvasH);
 
         // Cover-fit the image into the viewport
-        const imgRatio    = img.naturalWidth / img.naturalHeight;
+        const imgRatio = img.naturalWidth / img.naturalHeight;
         const canvasRatio = canvasW / canvasH;
 
         let drawW, drawH, drawX, drawY;
@@ -118,6 +201,9 @@
 
         ctx.drawImage(img, drawX, drawY, drawW, drawH);
         currentFrame = index;
+        
+        // Preload nearby frames for smooth scrolling
+        preloadNearbyFrames(index);
     }
 
     /* ═══════════════════════════════════════════════════════
@@ -187,21 +273,20 @@
         sectionState['section-hero'] = 'visible';
 
         // ── Master ScrollTrigger for frames + overlays ─────
-        const frameObj = { frame: 0 };
         let lastActiveSection = 'section-hero';
 
         ScrollTrigger.create({
             trigger: '#scroll-spacer',
             start: 'top top',
             end: 'bottom bottom',
-            scrub: 0.5,
+            scrub: IS_MOBILE ? 0.3 : 0.5,
             onUpdate: (self) => {
                 const progress = self.progress; // 0 to 1
 
                 // ─── Update canvas frame ───
                 const targetFrame = Math.round(progress * (FRAME_COUNT - 1));
                 if (targetFrame !== currentFrame) {
-                    drawFrame(targetFrame);
+                    requestAnimationFrame(() => drawFrame(targetFrame));
                 }
 
                 // ─── Update section overlays ───
@@ -251,12 +336,19 @@
        ═══════════════════════════════════════════════════════ */
     async function init() {
         sizeCanvas();
+        
+        // Debounced resize handler
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            sizeCanvas();
-            ScrollTrigger.refresh();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                sizeCanvas();
+                ScrollTrigger.refresh();
+            }, 150);
         });
 
-        await preloadImages();
+        // Load critical frames first
+        await preloadCriticalFrames();
 
         // Hide loader
         loader.classList.add('loader--hidden');
@@ -279,6 +371,9 @@
 
         // Kick off GSAP
         initScrollAnimation();
+        
+        // Load remaining frames in background
+        lazyLoadRemainingFrames();
     }
 
     // Go

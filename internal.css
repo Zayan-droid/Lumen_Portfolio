@@ -16,7 +16,24 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 900px) {
+    .page-internal .nav--static {
+        background: rgba(255, 255, 255, 0.75);
+    }
+}
+
+@media (max-width: 600px) {
+    .page-internal .nav--static {
+        background: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Footer on internal pages */
+.page-internal .footer {
+    margin-top: 60px;
 }
 
 /* ── Containers ─────────────────────────────────────────── */
@@ -468,6 +485,44 @@
 }
 
 @media (max-width: 480px) {
+    /* Navigation fixes for very small screens */
+    .nav {
+        padding: 0 8px 0 2px !important;
+    }
+    
+    .nav__inner {
+        padding: 0 !important;
+        gap: 8px !important;
+    }
+    
+    .nav__brand {
+        flex-shrink: 0;
+    }
+    
+    .nav__logo-img {
+        height: 34px !important;
+    }
+    
+    .nav__toggle {
+        width: 36px !important;
+        height: 36px !important;
+        padding: 6px !important;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+    
+    .nav__toggle-bar {
+        width: 20px !important;
+        height: 2px !important;
+    }
+    
+    .nav__cta {
+        padding: 8px 16px !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap;
+    }
+    
+    /* Grid and layout fixes */
     .grid-4x {
         grid-template-columns: 1fr;
     }

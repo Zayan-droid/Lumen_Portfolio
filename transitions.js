@@ -47,7 +47,13 @@
         const links = document.querySelector('.nav__links');
         
         if (toggle && links) {
-            toggle.addEventListener('click', function() {
+            // Always reset menu state on page load
+            toggle.classList.remove('active');
+            links.classList.remove('nav__links--open');
+            
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 this.classList.toggle('active');
                 links.classList.toggle('nav__links--open');
             });
@@ -59,6 +65,14 @@
                     toggle.classList.remove('active');
                     links.classList.remove('nav__links--open');
                 });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!toggle.contains(e.target) && !links.contains(e.target)) {
+                    toggle.classList.remove('active');
+                    links.classList.remove('nav__links--open');
+                }
             });
         }
     }
