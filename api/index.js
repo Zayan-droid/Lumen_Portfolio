@@ -124,7 +124,7 @@ app.post(['/api/waitlist', '/waitlist'], async (req, res) => {
             </div>
         `;
 
-        transporter.sendMail({
+        await transporter.sendMail({
             from: `"Lumin" <${process.env.EMAIL_USER}>`,
             to: contactEmail,
             subject: '🎓 Welcome to the Lumin Waitlist!',
@@ -148,7 +148,7 @@ app.post(['/api/waitlist', '/waitlist'], async (req, res) => {
                 </div>
             `;
 
-            transporter.sendMail({
+            await transporter.sendMail({
                 from: `"Lumin Waitlist" <${process.env.EMAIL_USER}>`,
                 to: CEO_EMAIL,
                 subject: `🚀 New Waitlist: ${schoolName} (${studentCount} students)`,
